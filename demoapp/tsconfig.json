@@ -1,0 +1,16 @@
+{
+  "extends": "@tsconfig/recommended/tsconfig.json",
+
+  "compilerOptions": {
+    "module": "CommonJS",
+    "outDir": "./built",
+    "allowJs": true,
+    "target": "ES6",
+    "checkJs": true,
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "typeRoots": [
+      "lib"
+    ],
+  }
+}
