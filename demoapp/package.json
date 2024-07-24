@@ -26,6 +26,7 @@
     "sass": "^1.77.8"
   },
   "devDependencies": {
+    "@popperjs/core": "^2.11.8",
     "@tsconfig/recommended": "^1.0.7",
     "@types/cookie-parser": "^1.4.7",
     "@types/ejs": "^3.1.5",
@@ -33,6 +34,7 @@
     "@types/http-errors": "^2.0.4",
     "@types/morgan": "^1.9.9",
     "@types/node": "^20.14.10",
+    "postcss": "^8.4.39",
     "typescript": "^5.6.0-dev.20240716"
   }
 }
