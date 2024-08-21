@@ -8,10 +8,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='/stylesheets/styles.css' />
+    <style>
+      #WebChatContainer {
+        position: absolute;
+        right: 0%;
+        width: 40%;
+        height: 75vh;
+        top: 10px;
+        bottom: 10px;
+      }
+
+      #WACContainer.WACContainer .HideWebChat {
+          display: none;
+          font-family: "Fraunces", serif;
+      }
+    </style>
   </head>
 
   <header class="header sticky-top">
-    <a class="header-brand" href="#">Easy to Give Then Receive</a>
+    <a class="header-brand" href="#"><%= title %></a>
     <div class="header-nav">
       <a class="nav-item nav-link active" href="#">Home <span class="visually-hidden">(current)</span></a>
       <a class="nav-item nav-link" href="#">Give</a>
