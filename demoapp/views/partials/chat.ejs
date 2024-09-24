@@ -11,8 +11,16 @@
     }
   }
 
+  /* function generateRandomUserID(){
+    const userIDs = new Uint32Array(10);
+    self.crypto.getRandomValues(userIDs);
+    return userID[Math.floor(Math.random() * 10)];
+  } */
+
   async function onLoad(instance){    
     instance.on({ type: 'view:change', handler: viewChangeHandler });
+
+    // instance.updateUserID(``) 
 
     instance.on({ type: 'send', handler: saveMessage });
     instance.on({ type: 'receive', handler: saveMessage });
