@@ -19,31 +19,73 @@
   - [Live demo](#live-demo)
 
 
-<!-- _INSTRUCTIONS: Below are the suggested sections to include in your README file to make sure your project is well documented. You can remove this instruction text._
+
 
 ## Project summary
+Easy to give then receive is an innovative technology solution built with IBM watsonx.ai™, to address specific United Nations Sustainable Development Goals (SDGs) targets in South Africa.
 
-### The issue we are hoping to solve
+The main purpose of the solution is to provide:
 
-REPLACE THIS SENTENCE with a short description, 2-3 sentences in length, of the specific sustainability problem your solution is meant to address.
+- Community with a way to:
+   - request assistance on behalf of others;
+   - create a call to action to interested parties to fulfil a need when they cannot do it themselves;
 
-### How our technology solution can help
+- Beneficiaries with:
+   - an easy way to articulate and express a need;
+   - flexibility around what kind of help they require, this could be anything from a single item, volunteers, collections, cash donations, mentorship, tutoring and training;
+   - the safety of remaining anonymous if they wish;
 
-REPLACE THIS SENTENCE with a short description of your team's solution, in about 10 words.
+- Benefactors with a trusted platform to:
+   - identify needs that match their interests by browsing requests related by SDG, location, category;
+   - verify that requests are within a close distance of their location or in a geographic area of their choice;
+   - initiatives are within their means to fulfil;
+   - map shortlisted initiatives back to one or more related SDG;
+   - determine where initiatives overlap across SDGs and build proactive strategies targeted at root causes;
+   - view fact sheets for each initiative to validate their authenticity and cross check against their strategy;
+   - build an environment, social and governance (ESG) portfolio of related initiatives;
+   - generate ESG reporting based on the initiatives they have contributed to;
+   - register a voluntary SDG acceleration action with the United Nations;
 
-### Our idea
+**Goal 12: Responsible Consumption and Production**
 
-INSTRUCTIONS: Replace this paragraph with a longer description of your solution. In about 500 words, describe your solution in more detail. Include the real-world problem you identified, describe the technological solution you have created, and explain how it’s an improvement over existing solutions. You can supply additional documentation in this source code repository that you link to as well.
+Target 12.6: Encourage companies, especially large and transnational companies, to adopt sustainable practices and to integrate sustainability information into their reporting cycle
 
-More detail is available in our [description document](./docs/DESCRIPTION.md).
+Indicator: 12.6.1: Number of companies publishing sustainability reports
 
-## Technology implementation
+   |DIMENSION|2017|2018|2019|2020|2021|2022|2023|
+   |---|---|---|---|---|---|---|---|
+   |Accommodation and Food Service Activities|1|1|1|1|1|1|1|
+   |Administrative and Support Service Activities|1|1|1|1|1|1|1|
+   |Construction|3|3|4|4|4|4|3|
+   |Education|0|0|1|1|1|1|1|
+   |Financial and Insurance Activities|13|13|14|14|15|15|4|
+   |Human Health and Social Work Activities|2|2|2|2|2|2|2|
+   |Information and Communication|4|4|5|5|5|5|4|
+   |Manufacturing|22|22|22|22|22|22|6|
+   |Mining and Quarrying|12|12|13|13|13|14|3|
+   |Professional, Scientific and Technical Activities|4|4|4|4|4|5|4|
+   |Real Estate Activities|6|7|7|8|9|11|3|
+   |Transportation and Storage|1|1|1|1|1|1|1|
+   |Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles|3|3|15|15|16|16|9|
+   |TOTAL|87|88|97|98|11|15|42|
+   Source: [https://unstats.un.org/UNSDWebsite/undatacommons/countries?p=country%2FZAF&v=dc%2Ftopic%2Fsdg_12.6.1](https://unstats.un.org/UNSDWebsite/undatacommons/countries?p=country%2FZAF&v=dc%2Ftopic%2Fsdg_12.6.1)
+
+Philanthropography is the first application we've built in our roadmap. It's an AI-enabled web and phone assistant, who gathers the needs of communities and beneficiaries seeking help. Philanthropography puts benefactors in proximity of need as its top priority, aiming to ease the churn traditionally associated with bringing help to places where it's needed most. We provide deeper detail, and our vision in our [GitHub Pages site]().
+
+## Technical implementation
+### IBM watsonx™ product(s) used
+- [watsonx Assistant™](https://cloud.ibm.com/catalog/services/watsonx-assistant) - the primary way to interact with the solution is through the web chat interface or the telephone number. The assistant is configured to utilize [flan-t5-xl-3b](https://dataplatform.cloud.ibm.com/wx/samples/models/google/flan-t5-xl?context=wx?context=wx&audience=wdp). Read more in the research paper [Scaling Instruction-Finetuned Language Models](https://arxiv.org/abs/2210.11416)
+
+### Solution architecture
+![Easy to give then receive solution architecture](/assets/images/Etgtr-Solution-Architecture.png)
+
+<!--
 
 ### IBM watsonx product(s) used
 
 _INSTRUCTIONS: Included here is a list of IBM watsonx products. Remove any products you did not use. Leave only those included in your solution code. In your official submission on the Call for Code Global Challenge web site, you are required to provide details on where and how you used each IBM watsonx product so judges can review your implementation. Remove these instructions._
 
-**Featured watsonx products**
+**watsonx products**
 
 - [watsonx.ai](https://www.ibm.com/products/watsonx-ai) - WHERE AND HOW THIS IS USED IN OUR SOLUTION
 
@@ -119,3 +161,20 @@ You can find a running system to test at...
 See our [description document](./docs/DESCRIPTION.md) for log in credentials.
 
 -->
+
+# Maintainers
+- @chong-cherilyn
+   - full stack web/cloud developer
+   - AI engineer
+   - data scientist
+   - UI/UX designer
+   - business analyst
+   - design thinking
+- @SBLANG
+   - cloud architect
+   - data architect
+   - researcher
+   - data scientist
+   - spatial data analyst
+   - ML engineer
+   - developer
