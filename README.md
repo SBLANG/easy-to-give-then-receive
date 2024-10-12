@@ -4,20 +4,17 @@
 # easy-to-give-then-receive
 
 - [Project summary](#project-summary)
-  - [The issue we are hoping to solve](#the-issue-we-are-hoping-to-solve)
-  - [How our technology solution can help](#how-our-technology-solution-can-help)
-  - [Our idea](#our-idea)
-- [Technology implementation](#technology-implementation)
+- [Technical implementation](#technology-implementation)
   - [IBM watsonx product(s) used](#ibm-ai-services-used)
-  - [Other IBM technology used](#other-ibm-technology-used)
+  <!-- - [Other IBM technology used](#other-ibm-technology-used) -->
   - [Solution architecture](#solution-architecture)
-- [Presentation materials](#presentation-materials)
+<!-- - [Presentation materials](#presentation-materials)
   - [Solution demo video](#solution-demo-video)
   - [Project development roadmap](#project-development-roadmap)
 - [Additional details](#additional-details)
   - [How to run the project](#how-to-run-the-project)
-  - [Live demo](#live-demo)
-
+  - [Live demo](#live-demo) -->
+- [Maintainers](#maintainers)
 
 
 
