@@ -65,6 +65,7 @@ Indicator: 12.6.1: Number of companies publishing sustainability reports
    |Transportation and Storage|1|1|1|1|1|1|1|
    |Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles|3|3|15|15|16|16|9|
    |TOTAL|87|88|97|98|11|15|42|
+ 
    Source: [https://unstats.un.org/UNSDWebsite/undatacommons/countries?p=country%2FZAF&v=dc%2Ftopic%2Fsdg_12.6.1](https://unstats.un.org/UNSDWebsite/undatacommons/countries?p=country%2FZAF&v=dc%2Ftopic%2Fsdg_12.6.1)
 
 Philanthropography is the first application we've built in our roadmap. It's an AI-enabled web and phone assistant, who gathers the needs of communities and beneficiaries seeking help. Philanthropography puts benefactors in proximity of need as its top priority, aiming to ease the churn traditionally associated with bringing help to places where it's needed most. We provide deeper detail, and our vision in our [GitHub Pages site]().
@@ -160,18 +161,21 @@ See our [description document](./docs/DESCRIPTION.md) for log in credentials.
 -->
 
 # Maintainers
-- @chong-cherilyn
+@chong-cherilyn
    - full stack web/cloud developer
-   - AI engineer
+   - integration developer
+   - AI/ML engineer
    - data scientist
    - UI/UX designer
    - business analyst
    - design thinking
-- @SBLANG
+   - designer
+@SBLANG
    - cloud architect
    - data architect
    - researcher
    - data scientist
    - spatial data analyst
-   - ML engineer
+   - AI/ML engineer
    - developer
+   - designer
