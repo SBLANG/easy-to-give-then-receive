@@ -41,14 +41,34 @@
   function saveHistory(event){
     messages.push(...event.messages);
   }
+
+  /*Escapes the given piece of text so it can safely be displayed in a CSV file. */
+  function escapeCSV(text) {
+    // Remove any newline characters which aren't supported in all CSV formats.
+    text = text.replace(/\n/g, ' ');
+
+    // If the text contains a comma or a double quote, the entire thing needs to be surrounded by double quotes. If
+    // the string contains a double quote, then each double quote needs to be replaced with two double quotes.
+    if (text.match(/[,"]/)) {
+      return `"${text.replace(/"/g, '""')}"`;
+    }
+    return text;
+  }
+
+  /* Creates a single row of text that will appear in the output file. */
+  function createDownloadText(from, text) {
+    return `${from},${escapeCSV(text)}`;
+  }
   
   function createDownload(){
     const downloadLines = [createDownloadText('From', 'Message')];
 
     messages.forEach(message => {
-      if (message.input?.text) { // Message that came from the user.
+      if (message.input?.text) {
+        // Message that came from the user.
         downloadLines.push(createDownloadText('You', message.input.text));
-      } else if (message.output?.generic?.length){ // Message that came from assistant. Can contain an array of individual message items.
+      } else if (message.output?.generic?.length){
+        // Message that came from assistant. Can contain an array of individual message items.
         message.output?.generic.forEach(messageItem => { 
           if (messageItem?.text){ // Handle text response.
             downloadLines.push(createDownloadText('Lendyr', messageItem.text));
@@ -74,7 +94,9 @@
     a.click();
   }
 
-  // Embed web chat. 
+  /* Embed web chat edit the configuration object to customise the appearance and behaviour before it is rendered. 
+  Visit https://web-chat.global.assistant.watson.cloud.ibm.com/docs.html?to=api-configuration#configuration-object
+  to review the parameters. */
   window.watsonAssistantChatOptions = {
     integrationID: "172046f8-8af2-4730-9991-e25ea7bde2d1", // The ID of this integration.
     region: "us-south", // The region your integration is hosted in.

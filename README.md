@@ -162,6 +162,7 @@ See our [description document](./docs/DESCRIPTION.md) for log in credentials.
 
 # Maintainers
 @chong-cherilyn
+   - product manager
    - full stack web/cloud developer
    - integration developer
    - AI/ML engineer
@@ -170,7 +171,9 @@ See our [description document](./docs/DESCRIPTION.md) for log in credentials.
    - business analyst
    - design thinking
    - designer
+
 @SBLANG
+   - product manager
    - cloud architect
    - data architect
    - researcher
