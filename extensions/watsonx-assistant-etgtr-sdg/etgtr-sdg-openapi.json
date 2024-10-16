@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "United Nations Statistics Division SDG API.",
-    "description": "Welcome to the UNSD SDG API: In this API you will be able to explore the official SDG data reported by the custodiam agencies.",
+    "title": "easy-to-give-then-receive SDG OpenAPI Specification.",
+    "description": "OpenAPI specification used to build a custom watsonx Assistant extension to integrate with the UNSD SDG API and explore the official SDG data reported by the custodian agencies.",
     "version": "v1"
   },
   "servers": [
