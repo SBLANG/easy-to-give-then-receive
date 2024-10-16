@@ -1,6 +1,8 @@
 <script>
 
-  // Set web chat size and position. 
+  /**
+   *  This function sets the web chat size and position. 
+   */
   const customElement = document.getElementById("WebChatContainer");
 
   function viewChangeHandler(event, instance){
@@ -11,38 +13,72 @@
     }
   }
 
-  /* function generateRandomUserID(){
+  /**
+   * This function generates a random user id. 
+   */  
+  /*   function generateRandomUserID(){
     const userIDs = new Uint32Array(10);
     self.crypto.getRandomValues(userIDs);
     return userID[Math.floor(Math.random() * 10)];
   } */
 
+  /**
+   * This is the function that is called when the web chat code has been loaded and it is ready to be rendered.
+   */
   async function onLoad(instance){    
     instance.on({ type: 'view:change', handler: viewChangeHandler });
 
     // instance.updateUserID(``) 
 
     instance.on({ type: 'send', handler: saveMessage });
-    instance.on({ type: 'receive', handler: saveMessage });
+
+    instance.on({ type: 'receive', handler: saveMessage, receiveHandler }); // We will need to listen for the "receive" event so we can automatically fill in a form element after
+    // getting a response from the assistant.
     instance.on({ type: 'history:begin', handler: saveHistory });
 
     instance.updateCustomMenuOptions('bot', [{ text: 'Download History', handler: doDownload }]);
+
+    // Listen for the userDefinedResponse event that will allow us to create content for the user defined response when one is
+    // received. See https://web-chat.global.assistant.watson.cloud.ibm.com/docs.html?to=api-events#summary for more
+    // about our events.
+    instance.on({
+      type: 'userDefinedResponse',
+      handler: (event, instance) => {
+        // The "user_defined_type" property is just an example. It is not required or you can use any other property
+        // or condition you want here. This makes it easier to handle different response types if you have more than
+        // one user defined response type.
+        const { message } = event.data;
+        if (message.user_defined && message.user_defined.user_defined_type === 'fill_requestor_name') {
+          requestorNameResponseHandler(event, instance);
+        }
+      },
+    });
     
     await instance.render();
   }
 
-  // Enable transcript download. 
+  /**
+   *  Enable transcript download.
+   */
   const messages = [];
 
+  /**
+   * This function saves the current message to an array. 
+   */
   function saveMessage(event){
     messages.push(event.data);
   }
 
+  /**
+   * This function save the chat history to an array. 
+   */
   function saveHistory(event){
     messages.push(...event.messages);
   }
 
-  /*Escapes the given piece of text so it can safely be displayed in a CSV file. */
+  /**
+   * This function escapes the given piece of text so it can safely be displayed in a CSV file.
+   */
   function escapeCSV(text) {
     // Remove any newline characters which aren't supported in all CSV formats.
     text = text.replace(/\n/g, ' ');
@@ -55,7 +91,9 @@
     return text;
   }
 
-  /* Creates a single row of text that will appear in the output file. */
+  /**
+   * This function creates a single row of text that will appear in the output file.
+   */
   function createDownloadText(from, text) {
     return `${from},${escapeCSV(text)}`;
   }
@@ -80,6 +118,9 @@
     return downloadLines.join('\n');
   }
 
+  /**
+   * This function triggers the download of the ouput file. 
+  */
   function doDownload(){
     const downloadContent = createDownload();
 
@@ -94,6 +135,44 @@
     a.click();
   }
 
+  /**
+   * This function is called when a user defined response should be rendered in web chat. We will use this to render a
+   * custom button which, when clicked, will fill in the requestor name field.
+   */
+  function requestorNameResponseHandler(event) {
+    const { element } = event.data;
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.marginTop = '16px';
+    button.innerHTML = 'Fill in requestor name';
+    button.addEventListener('click', () => {
+      // Look for the requestor name element in the document and fill in the requestor name. You could get this value
+      // from a context variable in the message.
+      document.querySelector('#requestor-name').value = Requestor_Name;
+    });
+
+    const container = document.createElement('div');
+    // This class name will allow our button to look like the default buttons used in web chat.
+    container.classList.add('ibm-web-chat--default-styles');
+    container.appendChild(button);
+
+    element.appendChild(container);
+  }
+
+  /**
+   * This function will look for the "beneficiary_name" user defined value and if it sees it, will fill in the beneficiary name
+   * field.
+   */
+  function receiveHandler(event) {
+    const message = event.data;
+    if (message.output.generic && message.output.generic[0].user_defined && message.output.generic[0].user_defined.user_defined_type === 'fill_beneficiary_name') {
+      // Look for the beneficiary name element in the document and fill in the beneficiary name. You could get this value
+      // from a context variable in the message.
+      document.querySelector('#beneficiary-name').value = Beneficiary_Name;
+    }
+  }
+
   /* Embed web chat edit the configuration object to customise the appearance and behaviour before it is rendered. 
   Visit https://web-chat.global.assistant.watson.cloud.ibm.com/docs.html?to=api-configuration#configuration-object
   to review the parameters. */
@@ -101,6 +180,7 @@
     integrationID: "172046f8-8af2-4730-9991-e25ea7bde2d1", // The ID of this integration.
     region: "us-south", // The region your integration is hosted in.
     serviceInstanceID: "a0ac6602-f8b8-4b0e-9343-df33259cc078", // The ID of your service instance.
+    debug: true,
     element: customElement,
     closePanelButtonConfig:{
       is_on: false,
