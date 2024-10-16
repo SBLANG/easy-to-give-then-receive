@@ -1,0 +1,6246 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "United Nations Statistics Division SDG API.",
+    "description": "Welcome to the UNSD SDG API: In this API you will be able to explore the official SDG data reported by the custodiam agencies.",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://unstats.un.org/sdgs/UNSDGAPIV5"
+    }
+  ],
+  "paths": {
+    "/v1/sdg/ArchiveData/GetArchiveTable": {
+      "post": {
+        "tags": ["ArchiveData"],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SDGArchiveData"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SDGArchiveData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/ArchiveData/GetArchiveTableById": {
+      "post": {
+        "tags": ["ArchiveData"],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "archiveId": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "encoding": {
+                "archiveId": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/CompareTrends/GetDisaggregatedGlobalAndRegional": {
+      "post": {
+        "tags": ["CompareTrends"],
+        "summary": "Returns the list of all applicable disaggregated series dimensions.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiDisaggregatedDimenions"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiDisaggregatedDimenions"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/CompareTrends/GetSeriesDisaggregationDimensions": {
+      "post": {
+        "tags": ["CompareTrends"],
+        "summary": "Returns the list of all applicable disaggregated series dimensions.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiDisaggregatedDimenions"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiDisaggregatedDimenions"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/CompareTrends/GetDataOneSeriesMultiArea": {
+      "post": {
+        "tags": ["CompareTrends"],
+        "summary": "Returns list of compare trends values for given one series and geoareas.",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "methodologyType": {
+                    "description": "Methodology For timeSeries(1-Original Data,2-Normalized Data 2015,3-Normalized Data 2010,4-Growth Rate)",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "series": {
+                    "description": "Series Code e.g SI_POV_EMP1",
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "disaggregatedCategory": {
+                    "description": "Disaggregated dimension value e.g 15+ | FEMALE",
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "areaCode": {
+                    "description": "Array of country codes e.g 432",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "fromPeriod": {
+                    "description": "From Year value e.g 2005",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "toPeriod": {
+                    "description": "Upto Year value e.g 2015",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "encoding": {
+                "methodologyType": {
+                  "style": "form"
+                },
+                "series": {
+                  "style": "form"
+                },
+                "disaggregatedCategory": {
+                  "style": "form"
+                },
+                "areaCode": {
+                  "style": "form"
+                },
+                "fromPeriod": {
+                  "style": "form"
+                },
+                "toPeriod": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiOneSeriesMultipleArea"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiOneSeriesMultipleArea"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/CompareTrends/GetDataMultiSeriesOneArea": {
+      "post": {
+        "tags": ["CompareTrends"],
+        "summary": "Returns list of compare trends values for given multi series and geoarea.",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "methodologyType": {
+                    "description": "Methodology For timeSeries(1-Original Data,2-Normalized Data 2015,3-Normalized Data 2010,4-Growth Rate)",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "series": {
+                    "description": "Array of series codes e.g SP_ACS_BSRVH2O~RURAL,SP_ACS_BSRVH2O~ALLAREA",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "areaCode": {
+                    "description": "Country code e.g 64",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "fromPeriod": {
+                    "description": "From Year value e.g 2005",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "toPeriod": {
+                    "description": "Upto Year value e.g 2015",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "encoding": {
+                "methodologyType": {
+                  "style": "form"
+                },
+                "series": {
+                  "style": "form"
+                },
+                "areaCode": {
+                  "style": "form"
+                },
+                "fromPeriod": {
+                  "style": "form"
+                },
+                "toPeriod": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiMultiSeriesOneArea"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiMultiSeriesOneArea"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/CompareTrends/GetAreaBySeriesDisaggregationDimensions": {
+      "post": {
+        "tags": ["CompareTrends"],
+        "summary": "Returns a list of geographies that have values against that series and disaggregation type.",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "methodologyType": {
+                    "description": "Methodology For timeSeries(1-Original Data,2-Normalized Data 2015,3-Normalized Data 2010,4-Growth Rate)",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "series": {
+                    "description": "SDMX code for that series",
+                    "required": ["false"],
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "methodologyType": {
+                  "style": "form"
+                },
+                "series": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/CompareTrends/GetSeriesDisaggregationDimensionsByArea": {
+      "post": {
+        "tags": ["CompareTrends"],
+        "summary": "Returns a list of series and disaggregation types for geographic area which have values against those series .",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "methodologyType": {
+                    "description": "Methodology For timeSeries(1-Original Data,2-Normalized Data 2015,3-Normalized Data 2010,4-Growth Rate)",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "areaCode": {
+                    "description": "Country code e.g 64",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "encoding": {
+                "methodologyType": {
+                  "style": "form"
+                },
+                "areaCode": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiDisaggregatedDimenions"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiDisaggregatedDimenions"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/DataAvailability/GetIndicatorsAllCountries": {
+      "post": {
+        "tags": ["DataAvailability"],
+        "summary": "Returns list of Compare indicators across all goals for given geoareas",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "dataPointType": {
+                    "description": "Data points for country (int) e.g 1 -Data for atleast 1 year since 2015,2-Data for atleast 2 years since 2015,3-Data for at least two years since 2015 and at least two years before 2015",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "countryId": {
+                    "description": "country code (int) e.g 0 for all countries",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "natureOfData": {
+                    "description": "Nature of data (string) e.g {'All':All,'C':Country Data,'CNA':Country data and adjusted country data}",
+                    "required": ["false"],
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "dataPointType": {
+                  "style": "form"
+                },
+                "countryId": {
+                  "style": "form"
+                },
+                "natureOfData": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiCompareIndicatorsAcrossCountries"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiCompareIndicatorsAcrossCountries"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/DataAvailability/GetCountriesAcrossGoals": {
+      "post": {
+        "tags": ["DataAvailability"],
+        "summary": "Returns list of Compare countries data across all goals",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "dataPointType": {
+                    "description": "Data points for country (int) e.g 1 -Data for atleast 1 year since 2015,2-Data for atleast 2 years since 2015,3-Data for at least two years since 2015 and at least two years before 2015",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "areaCodes": {
+                    "description": "Array of region ids e.g [343,353]",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "natureOfData": {
+                    "description": "Nature of data (string) e.g {'All':All,'C':Country Data,'CNA':Country data and adjusted country data}",
+                    "required": ["false"],
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "dataPointType": {
+                  "style": "form"
+                },
+                "areaCodes": {
+                  "style": "form"
+                },
+                "natureOfData": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiCountriesAcrossAllGoals"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiCountriesAcrossAllGoals"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/DataAvailability/GetGoalsDisaggregatedData": {
+      "post": {
+        "tags": ["DataAvailability"],
+        "summary": "Returns list of goal wise disaggregated data",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "dataPointType": {
+                    "description": "Data points for country (int) e.g 1 -Data for atleast 1 year since 2015,2-Data for atleast 2 years since 2015,3-Data for at least two years since 2015 and at least two years before 2015",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "areaCode": {
+                    "description": "Array of region ids e.g [343,353]",
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "natureOfData": {
+                    "description": "Nature of data (string) e.g {'All':All,'C':Country Data,'CNA':Country data and adjusted country data}",
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "disaggregationType": {
+                    "description": "Disaggregation type (int). e.g 0 : Any type of disaggregation.",
+                    "required": ["false"],
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "encoding": {
+                "dataPointType": {
+                  "style": "form"
+                },
+                "areaCode": {
+                  "style": "form"
+                },
+                "natureOfData": {
+                  "style": "form"
+                },
+                "disaggregationType": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiCompareIndicatorsAcrossCountries"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiCompareIndicatorsAcrossCountries"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/DataAvailability/GetSeriesAggregationsForMaps": {
+      "post": {
+        "tags": ["DataAvailability"],
+        "summary": "Returns list of data for all series for specified goalId",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "dataPointType": {
+                    "description": "Data points for country (int) e.g 1 -Data for atleast 1 year since 2015,2-Data for atleast 2 years since 2015,3-Data for at least two years since 2015 and at least two years before 2015",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "natureOfData": {
+                    "description": "Nature of data (string) e.g {'All':All,'C':Country Data,'CNA':Country data and adjusted country data}",
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "goalId": {
+                    "description": "Goal Id e.g. 1",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "encoding": {
+                "dataPointType": {
+                  "style": "form"
+                },
+                "natureOfData": {
+                  "style": "form"
+                },
+                "goalId": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/DataAvailability/GetWorldbyGoal": {
+      "post": {
+        "tags": ["DataAvailability"],
+        "summary": "Returns data for Global Summary Of the World for the Mixed line and bar Chart",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "dataPointType": {
+                    "description": "Data points for country (int) e.g 1 -Data for atleast 1 year since 2015,2-Data for atleast 2 years since 2015,3-Data for at least two years since 2015 and at least two years before 2015",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "natureOfData": {
+                    "description": "Nature of data (string) e.g {'All':All,'C':Country Data,'CNA':Country data and adjusted country data}",
+                    "required": ["false"],
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "dataPointType": {
+                  "style": "form"
+                },
+                "natureOfData": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/sdg/DataAvailability/GetCompareacrossgoalData": {
+      "post": {
+        "tags": ["DataAvailability"],
+        "summary": "Returns data for compare across the goals for the horizontal bar chart",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "dataPointType": {
+                    "description": "Data points for country (int) e.g 1 -Data for atleast 1 year since 2015,2-Data for atleast 2 years since 2015,3-Data for at least two years since 2015 and at least two years before 2015",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "natureOfData": {
+                    "description": "Nature of data (string) e.g {'All':All,'C':Country Data,'CNA':Country data and adjusted country data}",
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "Goals": {
+                    "description": "List of goal ids e.g 1,2",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "dataPointType": {
+                  "style": "form"
+                },
+                "natureOfData": {
+                  "style": "form"
+                },
+                "Goals": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/sdg/DataAvailability/GetSeriesAndDisAggregationsForGoals": {
+      "post": {
+        "tags": ["DataAvailability"],
+        "summary": "Returns list of goal wise series disaggregated type data",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "dataPoints": {
+                    "description": "Data points for country (int) e.g 1 -Data for atleast 1 year since 2015,2-Data for atleast 2 years since 2015,3-Data for at least two years since 2015 and at least two years before 2015",
+                    "required": ["false"],
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "natureOfData": {
+                    "description": "Nature of data (string) e.g {'All':All,'C':Country Data,'CNA':Country data and adjusted country data}",
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "disaggregationType": {
+                    "description": "Disaggregation type (int). e.g 0 : Any type of disaggregation.",
+                    "required": ["false"],
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "areaCode": {
+                    "description": "list of geo area codes e.g [342,345]",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "goalId": {
+                    "description": "Goal Id e.g. 1",
+                    "required": ["false"],
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "encoding": {
+                "dataPoints": {
+                  "style": "form"
+                },
+                "natureOfData": {
+                  "style": "form"
+                },
+                "disaggregationType": {
+                  "style": "form"
+                },
+                "areaCode": {
+                  "style": "form"
+                },
+                "goalId": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/DataAvailability/GetDisaggregationType": {
+      "post": {
+        "tags": ["DataAvailability"],
+        "summary": "Returns the list of Disaggregation Type",
+        "description": "Returns the list of DisaggregationType to bind Data Availability drop down",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/DataAvailability/CountriesList": {
+      "get": {
+        "tags": ["DataAvailability"],
+        "summary": "Returns list of countries, ISO and M49 Codes.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/GeoArea/List": {
+      "get": {
+        "tags": ["GeoArea"],
+        "summary": "Returns a flat list with all the geographies; geoAreaCode is the M49 Code",
+        "description": "Returns a flat list with all the geographies; geoAreaCode is the M49 Code",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/GeoArea/Tree": {
+      "get": {
+        "tags": ["GeoArea"],
+        "summary": "Returns a tree of regions and countries.",
+        "description": "Returns a flat list with all the geographies with hierarchy",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiGeoTree"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiGeoTree"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiGeoTree"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiGeoTree"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiGeoTree"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApiGeoTree"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/GeoArea/{GeoAreaCode}/List": {
+      "get": {
+        "tags": ["GeoArea"],
+        "summary": "Returns the list of Series avialable for that geoArea",
+        "description": "Returns the list of Series avialable for that geoArea",
+        "parameters": [
+          {
+            "name": "GeoAreaCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoalData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoalData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoalData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoalData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoalData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoalData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/GlobalDatabase/DataCount": {
+      "post": {
+        "tags": ["GlobalDatabase"],
+        "summary": "Returns a count of data points",
+        "description": "Return a count of data points available",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "seriesCodes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "areaCodes": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "timePeriod": {
+                    "type": "array",
+                    "items": {
+                      "type": "number",
+                      "format": "float"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "seriesCodes": {
+                  "style": "form"
+                },
+                "areaCodes": {
+                  "style": "form"
+                },
+                "timePeriod": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/GlobalDatabase/GetGlobalDataBase": {
+      "post": {
+        "tags": ["GlobalDatabase"],
+        "summary": "Returns a list of paginated observations pivoted by year",
+        "description": "Returns a list of obeservations pivoted by year filetered by the parameters defined on the call",
+        "parameters": [
+          {
+            "name": "seriesCode",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "areaCode",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/sdg/GlobalDatabase/DataExcel": {
+      "post": {
+        "tags": ["GlobalDatabase"],
+        "summary": "Returns an Excel file",
+        "description": "Returns an Excel file",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "seriesCodes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "areaCodes": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "timePeriod": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "seriesCodes": {
+                  "style": "form"
+                },
+                "areaCodes": {
+                  "style": "form"
+                },
+                "timePeriod": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/GlobalDatabase/PivotDataExcel": {
+      "post": {
+        "tags": ["GlobalDatabase"],
+        "summary": "Returns a pivoted excel file",
+        "description": "Returns a pivoted excel file",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "seriesCodes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "areaCodes": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "timePeriod": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "seriesCodes": {
+                  "style": "form"
+                },
+                "areaCodes": {
+                  "style": "form"
+                },
+                "timePeriod": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/GlobalDatabase/EmailDataExcel": {
+      "post": {
+        "tags": ["GlobalDatabase"],
+        "summary": "Returns an Excel file",
+        "description": "Returns an Excel file",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "seriesCodes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "areaCodes": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "timePeriod": {
+                    "type": "array",
+                    "items": {
+                      "type": "number",
+                      "format": "float"
+                    }
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "firstname": {
+                    "type": "string"
+                  },
+                  "lastname": {
+                    "type": "string"
+                  },
+                  "usertype": {
+                    "type": "string"
+                  },
+                  "comments": {
+                    "type": "string"
+                  },
+                  "indicators": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "seriesCodes": {
+                  "style": "form"
+                },
+                "areaCodes": {
+                  "style": "form"
+                },
+                "timePeriod": {
+                  "style": "form"
+                },
+                "email": {
+                  "style": "form"
+                },
+                "firstname": {
+                  "style": "form"
+                },
+                "lastname": {
+                  "style": "form"
+                },
+                "usertype": {
+                  "style": "form"
+                },
+                "comments": {
+                  "style": "form"
+                },
+                "indicators": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Goal/List": {
+      "get": {
+        "tags": ["Goal"],
+        "summary": "Returns the list of all Goals available.",
+        "description": "Returns the list of all Goals currently published in the latest release, you can include all the Targets, Indicator and series description using includechildren",
+        "parameters": [
+          {
+            "name": "includechildren",
+            "in": "query",
+            "description": "Includes information for Target, Series and indicators",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoal"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoal"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoal"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoal"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoal"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoal"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Goal/{goalCode}/Target/List": {
+      "get": {
+        "tags": ["Goal"],
+        "summary": "Returns the list of all Targets available for a Goal.",
+        "description": "Returns the list of all Targets for an specific Goal currently published in the latest release, you can include all the Targets, Indicator and series description using includechildren",
+        "parameters": [
+          {
+            "name": "includechildren",
+            "in": "query",
+            "description": "Includes information for Target, Series and indicators",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "goalCode",
+            "in": "path",
+            "description": "Code of the goal that we are querying",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoal"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoal"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoal"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoal"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoal"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGoal"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Goal/{goalCode}/GeoAreas": {
+      "get": {
+        "tags": ["Goal"],
+        "summary": "Returns a list of geographies that have values on that Goal",
+        "description": "Given a goal code will return a list of M49 code - Name of countries that have observations for that series",
+        "parameters": [
+          {
+            "name": "goalCode",
+            "in": "path",
+            "description": "Code for that Goal",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Goal/{goalCode}/Dimensions": {
+      "get": {
+        "tags": ["Goal"],
+        "summary": "Returns a list of dimensions for a series",
+        "description": "Given a series SDMX code will return a list of dimensions for that series code",
+        "parameters": [
+          {
+            "name": "goalCode",
+            "in": "path",
+            "description": "SDMX code for that goal",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDimension"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDimension"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDimension"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDimension"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDimension"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDimension"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Goal/{goalCode}/Attributes": {
+      "get": {
+        "tags": ["Goal"],
+        "summary": "Returns a list of attributes for a series",
+        "description": "Given a series SDMX code will return a list of dimensions for that series code",
+        "parameters": [
+          {
+            "name": "goalCode",
+            "in": "path",
+            "description": "SDMX code for that goal",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDimension"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDimension"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDimension"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDimension"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDimension"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDimension"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Goal/Data": {
+      "get": {
+        "tags": ["Goal"],
+        "summary": "Returns a list of paginated observations",
+        "description": "Returns a list of obeservations filetered by the parameters defined on the call",
+        "parameters": [
+          {
+            "name": "goal",
+            "in": "query",
+            "description": "List of codes for the Goals we are queying",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          {
+            "name": "areaCode",
+            "in": "query",
+            "description": "List of M49 values",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          {
+            "name": "timePeriod",
+            "in": "query",
+            "description": "List of years from which we want data eg: [\"2000\",\"2010\"]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "format": "float"
+              }
+            }
+          },
+          {
+            "name": "timePeriodStart",
+            "in": "query",
+            "description": "Time series start point",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "timePeriodEnd",
+            "in": "query",
+            "description": "Tine sertues end point",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "dimensions",
+            "in": "query",
+            "description": "Array of name - values eg: [{name:\"Age\",values:[\"15+\",\"15-24\"]}]",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of records per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Goal/DataCSV": {
+      "post": {
+        "tags": ["Goal"],
+        "summary": "Returns a csv file",
+        "description": "Returns a csv file",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "goal": {
+                    "description": "SDMX code for that goals",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "areaCodes": {
+                    "description": "List of M49 values",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "timePeriodStart": {
+                    "description": "Time series start point",
+                    "required": ["false"],
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "timePeriodEnd": {
+                    "description": "Tine sertues end point",
+                    "required": ["false"],
+                    "type": "number",
+                    "format": "float"
+                  }
+                }
+              },
+              "encoding": {
+                "goal": {
+                  "style": "form"
+                },
+                "areaCodes": {
+                  "style": "form"
+                },
+                "timePeriodStart": {
+                  "style": "form"
+                },
+                "timePeriodEnd": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Goal/DataExcel": {
+      "post": {
+        "tags": ["Goal"],
+        "summary": "Returns an Excel file",
+        "description": "Returns an Excel file",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "goal": {
+                    "description": "SDMX code for that goals",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "areaCodes": {
+                    "description": "List of M49 values",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "timePeriodStart": {
+                    "description": "Time series start point",
+                    "required": ["false"],
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "timePeriodEnd": {
+                    "description": "Tine sertues end point",
+                    "required": ["false"],
+                    "type": "number",
+                    "format": "float"
+                  }
+                }
+              },
+              "encoding": {
+                "goal": {
+                  "style": "form"
+                },
+                "areaCodes": {
+                  "style": "form"
+                },
+                "timePeriodStart": {
+                  "style": "form"
+                },
+                "timePeriodEnd": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Goal/PivotData": {
+      "get": {
+        "tags": ["Goal"],
+        "summary": "Returns a list of paginated observations pivoted by year",
+        "description": "Returns a list of obeservations pivoted by year filetered by the parameters defined on the call",
+        "parameters": [
+          {
+            "name": "goal",
+            "in": "query",
+            "description": "List of codes for the goals we are querying",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          {
+            "name": "areaCode",
+            "in": "query",
+            "description": "List of M49 values",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          {
+            "name": "dimensions",
+            "in": "query",
+            "description": "Array of name - values eg: [{name:\"Age\",values:[\"15+\",\"15-24\"]}]",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of records per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Indicator/List": {
+      "get": {
+        "tags": ["Indicator"],
+        "summary": "Returns the list of all Indicators available.",
+        "description": "Returns the list of all Indicators currently published in the latest release. The informaton includes series information and Goal - Target hierarchy",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Indicator/{indicatorCode}/Series/List": {
+      "get": {
+        "tags": ["Indicator"],
+        "summary": "Returns the list of all series for an indincator code",
+        "description": "Returns the list of all series for an indincator code, currently published in the latest release",
+        "parameters": [
+          {
+            "name": "indicatorCode",
+            "in": "path",
+            "description": "Code of the indicator that we are querying",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Indicator/{indicatorCode}/GeoAreas": {
+      "get": {
+        "tags": ["Indicator"],
+        "summary": "Returns a list of geographies that have values on that Indicator",
+        "description": "Given a Indicator code will return a list of M49 code - Name of countries that have observations for that series",
+        "parameters": [
+          {
+            "name": "indicatorCode",
+            "in": "path",
+            "description": "Code for that indicator",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Indicator/Data": {
+      "get": {
+        "tags": ["Indicator"],
+        "summary": "Returns a list of paginated observations",
+        "description": "Returns a list of obeservations filetered by the parameters defined on the call",
+        "parameters": [
+          {
+            "name": "indicator",
+            "in": "query",
+            "description": "List of codes for the indicators we are queying",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "areaCode",
+            "in": "query",
+            "description": "List of M49 values",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          {
+            "name": "timePeriod",
+            "in": "query",
+            "description": "List of years from which we want data eg: [\"2000\",\"2010\"]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "format": "float"
+              }
+            }
+          },
+          {
+            "name": "dimensions",
+            "in": "query",
+            "description": "Array of name - values eg: [{name:\"Age\",values:[\"15+\",\"15-24\"]}]",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timePeriodStart",
+            "in": "query",
+            "description": "Time series start point",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "timePeriodEnd",
+            "in": "query",
+            "description": "Tine sertues end point",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of records per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Indicator/PivotData": {
+      "get": {
+        "tags": ["Indicator"],
+        "summary": "Returns a list of paginated observations pivoted by year",
+        "description": "Returns a list of obeservations pivoted by year filetered by the parameters defined on the call",
+        "parameters": [
+          {
+            "name": "indicator",
+            "in": "query",
+            "description": "List of codes for the indicator we are querying",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "areaCode",
+            "in": "query",
+            "description": "List of M49 values",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          {
+            "name": "dimensions",
+            "in": "query",
+            "description": "Array of name - values eg: [{name:\"Age\",values:[\"15+\",\"15-24\"]}]",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of records per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Feedback/AddFeedback": {
+      "post": {
+        "tags": ["SDGApiFeedback"],
+        "summary": "Returns int which is the count of feedback for the day",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "feedbackType": {
+                    "description": "Feedback type (int) e.g 1 - Comments,2 - Questions",
+                    "required": ["true"],
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "feedbackDescription": {
+                    "description": "Can be any text",
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "firstName": {
+                    "description": "Name of the person",
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "description": "Name of the person",
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "email": {
+                    "description": "Email ID of the person",
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "feedbackPage": {
+                    "description": "This tells the feedback is for which Page e.g Home Or DataAvailability",
+                    "required": ["false"],
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "feedbackType": {
+                  "style": "form"
+                },
+                "feedbackDescription": {
+                  "style": "form"
+                },
+                "firstName": {
+                  "style": "form"
+                },
+                "lastName": {
+                  "style": "form"
+                },
+                "email": {
+                  "style": "form"
+                },
+                "feedbackPage": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/GlobalAndRegional/GetSingleSeries": {
+      "post": {
+        "tags": ["SDGApiGlobalAndRegional"],
+        "summary": "Returns the list of Observation Data for single series",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "indicators": {
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "seriesCode": {
+                    "description": "Series Code e.g SI_POV_EMP1",
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "areaCode": {
+                    "description": "List of country codes e.g 202",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "years": {
+                    "description": "List of year e.g 2002",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "indicators": {
+                  "style": "form"
+                },
+                "seriesCode": {
+                  "style": "form"
+                },
+                "areaCode": {
+                  "style": "form"
+                },
+                "years": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/sdg/GlobalAndRegional/GetMultiSeries": {
+      "post": {
+        "tags": ["SDGApiGlobalAndRegional"],
+        "summary": "Returns the list of Observation Data for multiple series",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "indicators": {
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "seriesCode": {
+                    "description": "List of series codes along with dimension e.g SP_ACS_BSRVH2O-RURAL,SP_ACS_BSRVH2O-ALLAREA",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "areaCode": {
+                    "description": "List of country codes e.g 202",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "years": {
+                    "description": "List of year e.g 2002",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "indicators": {
+                  "style": "form"
+                },
+                "seriesCode": {
+                  "style": "form"
+                },
+                "areaCode": {
+                  "style": "form"
+                },
+                "years": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/sdg/SDMXMetadata/GetSeries": {
+      "get": {
+        "tags": ["SDGApiSDMXMetadata"],
+        "summary": "Returns json  SDMX metadata",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/SDMXMetadata/GetSDMXMetaData": {
+      "post": {
+        "tags": ["SDGApiSDMXMetadata"],
+        "summary": "Returns json  SDMX metadata",
+        "parameters": [
+          {
+            "name": "serieses",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "conceptIds",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SDMXMetaDataResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SDMXMetaDataResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/SDMXMetadata/GetConceptsMasterList": {
+      "get": {
+        "tags": ["SDGApiSDMXMetadata"],
+        "summary": "Returns json  SDMX metadata",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ConceptsMasterData"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ConceptsMasterData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/SDMXMetadata/GetSdmxMSD": {
+      "get": {
+        "tags": ["SDGApiSDMXMetadata"],
+        "summary": "Returns json  SDMX metadata",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/SDMXMetadata/GetSDMXFormat": {
+      "post": {
+        "tags": ["SDGApiSDMXMetadata"],
+        "summary": "Returns json  SDMX metadata",
+        "parameters": [
+          {
+            "name": "serieses",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SDMXMetaDataResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SDMXMetaDataResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Series/List": {
+      "get": {
+        "tags": ["Series"],
+        "summary": "Returns the list of all Series available",
+        "description": "Returns the list of all Series currently published in the latest release, you can use the allreleases flag to include archived data",
+        "parameters": [
+          {
+            "name": "allreleases",
+            "in": "query",
+            "description": "Includes older releases",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Series/{serieCode}/List": {
+      "get": {
+        "tags": ["Series"],
+        "summary": "Returns the series information",
+        "description": "Given a series SDMX code will return the attributes related to that series. Including Goal, Target and Indicators to which the series are leated.",
+        "parameters": [
+          {
+            "name": "seriesCode",
+            "in": "path",
+            "description": "SDMX code for that series",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "allreleases",
+            "in": "query",
+            "description": "Include older releases",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "serieCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndicator"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Series/{seriesCode}/GeoAreas": {
+      "get": {
+        "tags": ["Series"],
+        "summary": "Returns a list of geographies that have values on that series",
+        "description": "Given a series SDMX code will return a list of M49 code - Name of countries that have observations for that series",
+        "parameters": [
+          {
+            "name": "seriesCode",
+            "in": "path",
+            "description": "SDMX code for that series",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Series/{seriesCode}/Dimensions": {
+      "get": {
+        "tags": ["Series"],
+        "summary": "Returns a list of dimensions for a series",
+        "description": "Given a series SDMX code will return a list of dimensions for that series code",
+        "parameters": [
+          {
+            "name": "seriesCode",
+            "in": "path",
+            "description": "SDMX code for that series",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDimension"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDimension"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Series/{seriesCode}/Attributes": {
+      "get": {
+        "tags": ["Series"],
+        "summary": "Returns a list of attributes for a series",
+        "description": "Given a series SDMX code will return a list of attributes for that series code",
+        "parameters": [
+          {
+            "name": "seriesCode",
+            "in": "path",
+            "description": "SDMX code for that series",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDimension"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiDimension"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Series/GeoAreaCode": {
+      "post": {
+        "tags": ["Series"],
+        "summary": "Returns a list of TimePeriods for a list of series and regions",
+        "description": "Given a series SDMX codes and areaCodes will return a list of years available for that data",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "seriesCodes": {
+                    "description": "SDMX code for that series",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "seriesCodes": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Series/TimePeriods": {
+      "post": {
+        "tags": ["Series"],
+        "summary": "Returns a Cound of data points available for a list of series and regions",
+        "description": "Given a series SDMX codes and areaCodes will return a list of years available for that data",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "seriesCodes": {
+                    "description": "SDMX code for that series",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "areaCodes": {
+                    "description": "Code for a group of regions",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "seriesCodes": {
+                  "style": "form"
+                },
+                "areaCodes": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "format": "float"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "format": "float"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Series/DataCount": {
+      "post": {
+        "tags": ["Series"],
+        "summary": "Returns a count of data points for series and areacodes",
+        "description": "Given a series SDMX codes and areaCodes will return a count of data points available for that data",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "seriesCodes": {
+                    "description": "SDMX code for that series",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "areaCodes": {
+                    "description": "Code for a group of regions",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "timePeriodStart": {
+                    "description": "Time series start point",
+                    "required": ["false"],
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "timePeriodEnd": {
+                    "description": "Tine sertues end point",
+                    "required": ["false"],
+                    "type": "number",
+                    "format": "float"
+                  }
+                }
+              },
+              "encoding": {
+                "seriesCodes": {
+                  "style": "form"
+                },
+                "areaCodes": {
+                  "style": "form"
+                },
+                "timePeriodStart": {
+                  "style": "form"
+                },
+                "timePeriodEnd": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Series/{seriesCode}/GeoArea/{geoAreaCode}/DataSlice": {
+      "get": {
+        "tags": ["Series"],
+        "summary": "Returns a timeseires for a specific geography (country / region)",
+        "description": "Given a series SDMX code and a M49 code will return a list observations",
+        "parameters": [
+          {
+            "name": "seriesCode",
+            "in": "path",
+            "description": "SDMX code for that series",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "geoAreaCode",
+            "in": "path",
+            "description": "M49 code for the geography",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "dimensions",
+            "in": "query",
+            "description": "Array of name - values eg: [{name:\"Age\",values:[\"15+\",\"15-24\"]}]",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timePeriods",
+            "in": "query",
+            "description": "List of years from which we want data eg: [\"2000\",\"2010\"]",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiSliceData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiSliceData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Series/Data": {
+      "get": {
+        "tags": ["Series"],
+        "summary": "Returns a list of paginated observations",
+        "description": "Returns a list of obeservations filetered by the parameters defined on the call",
+        "parameters": [
+          {
+            "name": "seriesCode",
+            "in": "query",
+            "description": "SDMX code for that series",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "releaseCode",
+            "in": "query",
+            "description": "Code of the releases that we are querying",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "areaCode",
+            "in": "query",
+            "description": "List of M49 values",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          {
+            "name": "timePeriod",
+            "in": "query",
+            "description": "List of years from which we want data eg: [\"2000\",\"2010\"]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "format": "float"
+              }
+            }
+          },
+          {
+            "name": "dimensions",
+            "in": "query",
+            "description": "Array of name - values eg: [{name:\"Age\",values:[\"15+\",\"15-24\"]}]",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timePeriodStart",
+            "in": "query",
+            "description": "Time series start point",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "timePeriodEnd",
+            "in": "query",
+            "description": "Tine sertues end point",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of records per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Series/DataCSV": {
+      "post": {
+        "tags": ["Series"],
+        "summary": "Returns a csv file",
+        "description": "Returns a csv file",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "seriesCodes": {
+                    "description": "SDMX code for that series",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "areaCodes": {
+                    "description": "List of M49 values",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "timePeriodStart": {
+                    "description": "Time series start point",
+                    "required": ["false"],
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "timePeriodEnd": {
+                    "description": "Tine sertues end point",
+                    "required": ["false"],
+                    "type": "number",
+                    "format": "float"
+                  }
+                }
+              },
+              "encoding": {
+                "seriesCodes": {
+                  "style": "form"
+                },
+                "areaCodes": {
+                  "style": "form"
+                },
+                "timePeriodStart": {
+                  "style": "form"
+                },
+                "timePeriodEnd": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Series/DataExcel": {
+      "post": {
+        "tags": ["Series"],
+        "summary": "Returns an Excel file",
+        "description": "Returns an Excel file",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "seriesCodes": {
+                    "description": "Code for that series",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "areaCodes": {
+                    "description": "List of M49 values",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "timePeriodStart": {
+                    "description": "Time series start point",
+                    "required": ["false"],
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "timePeriodEnd": {
+                    "description": "Tine sertues end point",
+                    "required": ["false"],
+                    "type": "number",
+                    "format": "float"
+                  }
+                }
+              },
+              "encoding": {
+                "seriesCodes": {
+                  "style": "form"
+                },
+                "areaCodes": {
+                  "style": "form"
+                },
+                "timePeriodStart": {
+                  "style": "form"
+                },
+                "timePeriodEnd": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Series/PivotDataExcel": {
+      "post": {
+        "tags": ["Series"],
+        "summary": "Returns a pivoted excel file",
+        "description": "Returns a pivoted excel file",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "seriesCodes": {
+                    "description": "SDMX code for that series",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "areaCodes": {
+                    "description": "List of M49 values",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "timePeriodStart": {
+                    "description": "Time series start point",
+                    "required": ["false"],
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "timePeriodEnd": {
+                    "description": "Tine sertues end point",
+                    "required": ["false"],
+                    "type": "number",
+                    "format": "float"
+                  }
+                }
+              },
+              "encoding": {
+                "seriesCodes": {
+                  "style": "form"
+                },
+                "areaCodes": {
+                  "style": "form"
+                },
+                "timePeriodStart": {
+                  "style": "form"
+                },
+                "timePeriodEnd": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Series/EmailDataCSV": {
+      "post": {
+        "tags": ["Series"],
+        "summary": "Returns a csv file",
+        "description": "Returns a csv file",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "seriesCodes": {
+                    "description": "SDMX code for that series",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "areaCodes": {
+                    "description": "List of M49 values",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "timePeriodStart": {
+                    "description": "Time series start point",
+                    "required": ["false"],
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "timePeriodEnd": {
+                    "description": "Tine sertues end point",
+                    "required": ["false"],
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "email": {
+                    "description": "Email to which the link will be send",
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "firstname": {
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "lastname": {
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "usertype": {
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "comments": {
+                    "required": ["false"],
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "seriesCodes": {
+                  "style": "form"
+                },
+                "areaCodes": {
+                  "style": "form"
+                },
+                "timePeriodStart": {
+                  "style": "form"
+                },
+                "timePeriodEnd": {
+                  "style": "form"
+                },
+                "email": {
+                  "style": "form"
+                },
+                "firstname": {
+                  "style": "form"
+                },
+                "lastname": {
+                  "style": "form"
+                },
+                "usertype": {
+                  "style": "form"
+                },
+                "comments": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Series/EmailDataExcel": {
+      "post": {
+        "tags": ["Series"],
+        "summary": "Returns an Excel file",
+        "description": "Returns an Excel file",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "seriesCodes": {
+                    "description": "SDMX code for that series",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "areaCodes": {
+                    "description": "List of M49 values",
+                    "required": ["false"],
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "timePeriodStart": {
+                    "description": "Time series start point",
+                    "required": ["false"],
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "timePeriodEnd": {
+                    "description": "Tine sertues end point",
+                    "required": ["false"],
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "email": {
+                    "description": "Email to which the link will be send",
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "firstname": {
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "lastname": {
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "usertype": {
+                    "required": ["false"],
+                    "type": "string"
+                  },
+                  "comments": {
+                    "required": ["false"],
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "seriesCodes": {
+                  "style": "form"
+                },
+                "areaCodes": {
+                  "style": "form"
+                },
+                "timePeriodStart": {
+                  "style": "form"
+                },
+                "timePeriodEnd": {
+                  "style": "form"
+                },
+                "email": {
+                  "style": "form"
+                },
+                "firstname": {
+                  "style": "form"
+                },
+                "lastname": {
+                  "style": "form"
+                },
+                "usertype": {
+                  "style": "form"
+                },
+                "comments": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Series/PivotData": {
+      "get": {
+        "tags": ["Series"],
+        "summary": "Returns a list of paginated observations pivoted by year",
+        "description": "Returns a list of obeservations pivoted by year filetered by the parameters defined on the call",
+        "parameters": [
+          {
+            "name": "seriesCode",
+            "in": "query",
+            "description": "SDMX code for that series",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "releaseCode",
+            "in": "query",
+            "description": "Code of the releases that we are querying",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "areaCode",
+            "in": "query",
+            "description": "List of M49 values",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          {
+            "name": "dimensions",
+            "in": "query",
+            "description": "Array of name - values eg: [{name:\"Age\",values:[\"15+\",\"15-24\"]}]",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of records per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Series"],
+        "summary": "Returns a list of paginated observations pivoted by year",
+        "description": "Returns a list of obeservations pivoted by year filetered by the parameters defined on the call",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "seriesCode": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "releaseCode": {
+                    "type": "string"
+                  },
+                  "areaCode": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "dimensions": {
+                    "type": "string"
+                  },
+                  "page": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "pageSize": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "encoding": {
+                "seriesCode": {
+                  "style": "form"
+                },
+                "releaseCode": {
+                  "style": "form"
+                },
+                "areaCode": {
+                  "style": "form"
+                },
+                "dimensions": {
+                  "style": "form"
+                },
+                "page": {
+                  "style": "form"
+                },
+                "pageSize": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Series/LastUpdated": {
+      "get": {
+        "tags": ["Series"],
+        "summary": "Returns the time last time the data was updated.",
+        "description": "Returns the time last time the data was updated.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Target/List": {
+      "get": {
+        "tags": ["Target"],
+        "summary": "Returns the list of all Target available.",
+        "description": "Returns the list of all Targets currently published in the latest release. You can include all the Targets, Indicator and series description using includechildren",
+        "parameters": [
+          {
+            "name": "includechildren",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiTarget"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiTarget"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiTarget"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiTarget"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiTarget"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiTarget"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Target/{targetCode}/Indicator/List": {
+      "get": {
+        "tags": ["Target"],
+        "summary": "Returns the list of all Indicators available for a Target.",
+        "description": "Returns the list of all Indicators for an specific Target currently published in the latest release, you can include all Indicator and series description using includechildren",
+        "parameters": [
+          {
+            "name": "includechildren",
+            "in": "query",
+            "description": "Includes information for Target, Series and indicators",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "targetCode",
+            "in": "path",
+            "description": "Code of the target that we are querying",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiTarget"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiTarget"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiTarget"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiTarget"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiTarget"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiTarget"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Target/{targetCode}/GeoAreas": {
+      "get": {
+        "tags": ["Target"],
+        "summary": "Returns a list of geographies that have values on that Target",
+        "description": "Given a target code will return a list of M49 code - Name of countries that have observations for that series",
+        "parameters": [
+          {
+            "name": "targetCode",
+            "in": "path",
+            "description": "Code for that target",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiGeoArea"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Target/Data": {
+      "get": {
+        "tags": ["Target"],
+        "summary": "Returns a list of paginated observations",
+        "description": "Returns a list of obeservations filetered by the parameters defined on the call",
+        "parameters": [
+          {
+            "name": "target",
+            "in": "query",
+            "description": "List of codes for the targets we are queying",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "areaCode",
+            "in": "query",
+            "description": "List of M49 values",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          {
+            "name": "timePeriod",
+            "in": "query",
+            "description": "List of years from which we want data eg: [\"2000\",\"2010\"]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "format": "float"
+              }
+            }
+          },
+          {
+            "name": "dimensions",
+            "in": "query",
+            "description": "Array of name - values eg: [{name:\"Age\",values:[\"15+\",\"15-24\"]}]",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timePeriodStart",
+            "in": "query",
+            "description": "Time series start point",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "timePeriodEnd",
+            "in": "query",
+            "description": "Tine sertues end point",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of records per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/Target/PivotData": {
+      "get": {
+        "tags": ["Target"],
+        "summary": "Returns a list of paginated observations pivoted by year",
+        "description": "Returns a list of obeservations pivoted by year filetered by the parameters defined on the call",
+        "parameters": [
+          {
+            "name": "target",
+            "in": "query",
+            "description": "List of codes for the targets we are querying",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "areaCode",
+            "in": "query",
+            "description": "List of M49 values",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          {
+            "name": "dimensions",
+            "in": "query",
+            "description": "Array of name - values eg: [{name:\"Age\",values:[\"15+\",\"15-24\"]}]",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of records per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiObservationPivotPage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sdg/User/EmailExist": {
+      "get": {
+        "tags": ["User"],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApiCodeList": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "sdmx": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiCompareIndicatorsAcrossCountries": {
+        "type": "object",
+        "properties": {
+          "goalId": {
+            "type": "string",
+            "nullable": true
+          },
+          "goalName": {
+            "type": "string",
+            "nullable": true
+          },
+          "indicators": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiIndicatorPercentage"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiCountriesAcrossAllGoals": {
+        "type": "object",
+        "properties": {
+          "goals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SDGGoals"
+            },
+            "nullable": true
+          },
+          "goalsCountryDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GoalsCountrywiseData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiCountrywiseData": {
+        "type": "object",
+        "properties": {
+          "geoAreaCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "geoAreaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "chartColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "yearWiseData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiYearWiseData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiDimension": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "codes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiCodeList"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiDisaggregatedDimenions": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "goal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "target": {
+            "type": "string",
+            "nullable": true
+          },
+          "indicator": {
+            "type": "string",
+            "nullable": true
+          },
+          "seriesCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "disaggregatedCategory": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiGeoArea": {
+        "type": "object",
+        "properties": {
+          "geoAreaCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "geoAreaName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiGeoTree": {
+        "type": "object",
+        "properties": {
+          "geoAreaCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "geoAreaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiGeoTreeChild1"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiGeoTreeChild1": {
+        "type": "object",
+        "properties": {
+          "geoAreaCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "geoAreaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiGeoTreeChild2"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiGeoTreeChild2": {
+        "type": "object",
+        "properties": {
+          "geoAreaCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "geoAreaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiGeoTreeChild3"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiGeoTreeChild3": {
+        "type": "object",
+        "properties": {
+          "geoAreaCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "geoAreaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiGeoTreeChild4"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiGeoTreeChild4": {
+        "type": "object",
+        "properties": {
+          "geoAreaCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "geoAreaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiGeoTreeChild5"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiGeoTreeChild5": {
+        "type": "object",
+        "properties": {
+          "geoAreaCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "geoAreaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiGeoTreeChild6"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiGeoTreeChild6": {
+        "type": "object",
+        "properties": {
+          "geoAreaCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "geoAreaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiGoal": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "uri": {
+            "type": "string",
+            "nullable": true
+          },
+          "targets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiTarget"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiGoalData": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "uri": {
+            "type": "string",
+            "nullable": true
+          },
+          "targets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiTargetData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiIndicator": {
+        "type": "object",
+        "properties": {
+          "goal": {
+            "type": "string",
+            "nullable": true
+          },
+          "target": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "tier": {
+            "type": "string",
+            "nullable": true
+          },
+          "uri": {
+            "type": "string",
+            "nullable": true
+          },
+          "series": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSerie"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiIndicatorData": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "tier": {
+            "type": "string",
+            "nullable": true
+          },
+          "uri": {
+            "type": "string",
+            "nullable": true
+          },
+          "series": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSerieData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiIndicatorPercentage": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "percentage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiMultiSeriesData": {
+        "type": "object",
+        "properties": {
+          "geoAreaCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "geoAreaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ctSeriesWiseData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSeriesData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiMultiSeriesOneArea": {
+        "type": "object",
+        "properties": {
+          "multiSeriesDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiMultiSeriesData"
+            },
+            "nullable": true
+          },
+          "multiSeriesSingleAreaCSVData": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiObservation": {
+        "type": "object",
+        "properties": {
+          "goal": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "target": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "indicator": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "series": {
+            "type": "string",
+            "nullable": true
+          },
+          "seriesDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "seriesCount": {
+            "type": "string",
+            "nullable": true
+          },
+          "geoAreaCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "geoAreaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "timePeriodStart": {
+            "type": "number",
+            "format": "float"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "valueType": {
+            "type": "string",
+            "nullable": true
+          },
+          "time_detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeCoverage": {
+            "type": "string",
+            "nullable": true
+          },
+          "upperBound": {
+            "type": "string",
+            "nullable": true
+          },
+          "lowerBound": {
+            "type": "string",
+            "nullable": true
+          },
+          "basePeriod": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "type": "string",
+            "nullable": true
+          },
+          "geoInfoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "footnotes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "dimensions": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiObservationPage": {
+        "type": "object",
+        "properties": {
+          "size": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalElements": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "attributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiDimension"
+            },
+            "nullable": true
+          },
+          "dimensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiDimension"
+            },
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiObservation"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiObservationPivot": {
+        "type": "object",
+        "properties": {
+          "goal": {
+            "type": "string",
+            "nullable": true
+          },
+          "target": {
+            "type": "string",
+            "nullable": true
+          },
+          "indicator": {
+            "type": "string",
+            "nullable": true
+          },
+          "series": {
+            "type": "string",
+            "nullable": true
+          },
+          "seriesDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "seriesCount": {
+            "type": "string",
+            "nullable": true
+          },
+          "geoAreaCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "geoAreaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeCoverage": {
+            "type": "string",
+            "nullable": true
+          },
+          "upperBound": {
+            "type": "string",
+            "nullable": true
+          },
+          "lowerBound": {
+            "type": "string",
+            "nullable": true
+          },
+          "basePeriod": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "type": "string",
+            "nullable": true
+          },
+          "geoInfoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "age": {
+            "type": "string",
+            "nullable": true
+          },
+          "freq": {
+            "type": "string",
+            "nullable": true
+          },
+          "sex": {
+            "type": "string",
+            "nullable": true
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "units": {
+            "type": "string",
+            "nullable": true
+          },
+          "level_status": {
+            "type": "string",
+            "nullable": true
+          },
+          "name_of_international_agreement": {
+            "type": "string",
+            "nullable": true
+          },
+          "education_level": {
+            "type": "string",
+            "nullable": true
+          },
+          "type_of_product": {
+            "type": "string",
+            "nullable": true
+          },
+          "type_of_facilities": {
+            "type": "string",
+            "nullable": true
+          },
+          "name_of_international_institution": {
+            "type": "string",
+            "nullable": true
+          },
+          "type_of_occupation": {
+            "type": "string",
+            "nullable": true
+          },
+          "tariff_regime_status": {
+            "type": "string",
+            "nullable": true
+          },
+          "mode_of_transportation": {
+            "type": "string",
+            "nullable": true
+          },
+          "type_of_mobile_technology": {
+            "type": "string",
+            "nullable": true
+          },
+          "name_of_non_communicable_disease": {
+            "type": "string",
+            "nullable": true
+          },
+          "type_of_skill": {
+            "type": "string",
+            "nullable": true
+          },
+          "type_of_speed": {
+            "type": "string",
+            "nullable": true
+          },
+          "migratory_status": {
+            "type": "string",
+            "nullable": true
+          },
+          "disability_status": {
+            "type": "string",
+            "nullable": true
+          },
+          "hazard_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "ihr_capacity": {
+            "type": "string",
+            "nullable": true
+          },
+          "reporting_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "cities": {
+            "type": "string",
+            "nullable": true
+          },
+          "activity": {
+            "type": "string",
+            "nullable": true
+          },
+          "policy_domains": {
+            "type": "string",
+            "nullable": true
+          },
+          "years": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiObservationPivotPage": {
+        "type": "object",
+        "properties": {
+          "size": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalElements": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "attributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiDimension"
+            },
+            "nullable": true
+          },
+          "dimensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiDimension"
+            },
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiObservationPivot"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiOneSeriesData": {
+        "type": "object",
+        "properties": {
+          "indicator": {
+            "type": "string",
+            "nullable": true
+          },
+          "seriesCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "seriesTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "disaggregationType": {
+            "type": "string",
+            "nullable": true
+          },
+          "units": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiCountrywiseData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiOneSeriesMultipleArea": {
+        "type": "object",
+        "properties": {
+          "oneSeriesMultiAreaDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiOneSeriesData"
+            },
+            "nullable": true
+          },
+          "oneSeriesMultiAreaCSVData": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiSerie": {
+        "type": "object",
+        "properties": {
+          "goal": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "target": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "indicator": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "release": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "uri": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiSerieData": {
+        "type": "object",
+        "properties": {
+          "release": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "uri": {
+            "type": "string",
+            "nullable": true
+          },
+          "observations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiObservation"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiSeriesData": {
+        "type": "object",
+        "properties": {
+          "indicator": {
+            "type": "string",
+            "nullable": true
+          },
+          "seriesCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "seriesTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "disaggregationType": {
+            "type": "string",
+            "nullable": true
+          },
+          "units": {
+            "type": "string",
+            "nullable": true
+          },
+          "chartColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "yearWiseData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiYearWiseData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiSliceData": {
+        "type": "object",
+        "properties": {
+          "series": {
+            "type": "string",
+            "nullable": true
+          },
+          "geoAreaCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "geoAreaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "dimensions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiTarget": {
+        "type": "object",
+        "properties": {
+          "goal": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "uri": {
+            "type": "string",
+            "nullable": true
+          },
+          "indicators": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiIndicator"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiTargetData": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "uri": {
+            "type": "string",
+            "nullable": true
+          },
+          "indicators": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiIndicatorData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiYearWiseData": {
+        "type": "object",
+        "properties": {
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConceptsMasterData": {
+        "type": "object",
+        "properties": {
+          "conceptId": {
+            "type": "string",
+            "nullable": true
+          },
+          "conceptName": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GoalsCountrywiseData": {
+        "type": "object",
+        "properties": {
+          "geoAreaCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "geoAreaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "goal1": {
+            "type": "number",
+            "format": "double"
+          },
+          "goal2": {
+            "type": "number",
+            "format": "double"
+          },
+          "goal3": {
+            "type": "number",
+            "format": "double"
+          },
+          "goal4": {
+            "type": "number",
+            "format": "double"
+          },
+          "goal5": {
+            "type": "number",
+            "format": "double"
+          },
+          "goal6": {
+            "type": "number",
+            "format": "double"
+          },
+          "goal7": {
+            "type": "number",
+            "format": "double"
+          },
+          "goal8": {
+            "type": "number",
+            "format": "double"
+          },
+          "goal9": {
+            "type": "number",
+            "format": "double"
+          },
+          "goal10": {
+            "type": "number",
+            "format": "double"
+          },
+          "goal11": {
+            "type": "number",
+            "format": "double"
+          },
+          "goal12": {
+            "type": "number",
+            "format": "double"
+          },
+          "goal13": {
+            "type": "number",
+            "format": "double"
+          },
+          "goal14": {
+            "type": "number",
+            "format": "double"
+          },
+          "goal15": {
+            "type": "number",
+            "format": "double"
+          },
+          "goal16": {
+            "type": "number",
+            "format": "double"
+          },
+          "goal17": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SDGArchiveData": {
+        "type": "object",
+        "properties": {
+          "archiveId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "jsonData": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "tableName": {
+            "type": "string",
+            "nullable": true
+          },
+          "insertedDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SDGGoals": {
+        "type": "object",
+        "properties": {
+          "goalId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "goalName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SDMXMetaDataResponse": {
+        "type": "object",
+        "properties": {
+          "series": {
+            "type": "string",
+            "nullable": true
+          },
+          "seriesDesc": {
+            "type": "string",
+            "nullable": true
+          },
+          "indicatorDesc": {
+            "type": "string",
+            "nullable": true
+          },
+          "conceptId": {
+            "type": "string",
+            "nullable": true
+          },
+          "conceptName": {
+            "type": "string",
+            "nullable": true
+          },
+          "conceptDesc": {
+            "type": "string",
+            "nullable": true
+          },
+          "conceptHTML": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
