@@ -14,40 +14,41 @@
 - [Additional details](#additional-details)
   - [How to run the project](#how-to-run-the-project)
   - [Live demo](#live-demo) -->
+- [Research](#research)
 - [Maintainers](#maintainers)
 
 
 
 ## Project summary
-Easy to give then receive is an innovative technology solution built with IBM watsonx.ai™, to address specific United Nations Sustainable Development Goals (SDGs) targets in South Africa.
+Easy to give then receive is an innovative technology solution built with IBM watsonx.ai&#8482;&#44; to address specific United Nations Sustainable Development Goals &#40;SDGs&#41; targets in South Africa&#46;
 
-The main purpose of the solution is to provide:
+The main purpose of the solution is to provide&#58;
 
-- Community with a way to:
-   - request assistance on behalf of others;
-   - create a call to action to interested parties to fulfil a need when they cannot do it themselves;
+- Community with a way to&#58;
+  - request assistance on behalf of others&#59;
+  - create a call to action to interested parties to fulfil a need when they cannot do it themselves&#59;
 
-- Beneficiaries with:
-   - an easy way to articulate and express a need;
-   - flexibility around what kind of help they require, this could be anything from a single item, volunteers, collections, cash donations, mentorship, tutoring and training;
-   - the safety of remaining anonymous if they wish;
+- Beneficiaries with&#58;
+  - an easy way to articulate and express a need&#59;
+  - flexibility around what kind of help they require&#44; this could be anything from a single item&#44; volunteers&#44; collections&#44; cash donations&#44; mentorship&#44; tutoring and training&#59;
+  - the safety of remaining anonymous if they wish&#59;
 
-- Benefactors with a trusted platform to:
-   - identify needs that match their interests by browsing requests related by SDG, location, category;
-   - verify that requests are within a close distance of their location or in a geographic area of their choice;
-   - initiatives are within their means to fulfil;
-   - map shortlisted initiatives back to one or more related SDG;
-   - determine where initiatives overlap across SDGs and build proactive strategies targeted at root causes;
-   - view fact sheets for each initiative to validate their authenticity and cross check against their strategy;
-   - build an environment, social and governance (ESG) portfolio of related initiatives;
-   - generate ESG reporting based on the initiatives they have contributed to;
-   - register a voluntary SDG acceleration action with the United Nations;
+- Benefactors with a trusted platform to&#58;
+  - identify needs that match their interests by browsing requests related by SDG&#44; location, category&#59;
+  - verify that requests are within a close distance of their location or in a geographic area of their choice&#59;
+  - initiatives are within their means to fulfil&#59;
+  - map shortlisted initiatives back to one or more related SDG&#59;
+  - determine where initiatives overlap across SDGs and build proactive strategies targeted at root causes&#59;
+  - view fact sheets for each initiative to validate their authenticity and cross check against their strategy&#59;
+  - build an environment&#44; social and governance  &#40;ESG&#41; portfolio of related initiatives&#59;
+  - generate ESG reporting based on the initiatives they have contributed to&#59;
+  - register a voluntary SDG acceleration action with the United Nations&#59;
 
 **Goal 12: Responsible Consumption and Production**
 
-Target 12.6: Encourage companies, especially large and transnational companies, to adopt sustainable practices and to integrate sustainability information into their reporting cycle
+Target 12&#46;6: Encourage companies, especially large and transnational companies&#44; to adopt sustainable practices and to integrate sustainability information into their reporting cycle
 
-Indicator: 12.6.1: Number of companies publishing sustainability reports
+Indicator: 12&#46;6&#46;1&#58; Number of companies publishing sustainability reports
 
    |DIMENSION|2017|2018|2019|2020|2021|2022|2023|
    |---|---|---|---|---|---|---|---|
@@ -63,19 +64,50 @@ Indicator: 12.6.1: Number of companies publishing sustainability reports
    |Professional, Scientific and Technical Activities|4|4|4|4|4|5|4|
    |Real Estate Activities|6|7|7|8|9|11|3|
    |Transportation and Storage|1|1|1|1|1|1|1|
-   |Wholesale and Retail Trade; Repair of Motor Vehicles and Motorcycles|3|3|15|15|16|16|9|
+   |Wholesale and Retail Trade&#59; Repair of Motor Vehicles and Motorcycles|3|3|15|15|16|16|9|
    |TOTAL|87|88|97|98|11|15|42|
  
-   Source: [https://unstats.un.org/UNSDWebsite/undatacommons/countries?p=country%2FZAF&v=dc%2Ftopic%2Fsdg_12.6.1](https://unstats.un.org/UNSDWebsite/undatacommons/countries?p=country%2FZAF&v=dc%2Ftopic%2Fsdg_12.6.1)
+Source: [https://unstats.un.org/UNSDWebsite/undatacommons/countries?p=country%2FZAF&v=dc%2Ftopic%2Fsdg_12.6.1](https://unstats.un.org/UNSDWebsite/undatacommons/countries?p=country%2FZAF&v=dc%2Ftopic%2Fsdg_12.6.1)
 
-Philanthropography is the first application we've built in our roadmap. It's an AI-enabled web and phone assistant, who gathers the needs of communities and beneficiaries seeking help. Philanthropography puts benefactors in proximity of need as its top priority, aiming to ease the churn traditionally associated with bringing help to places where it's needed most. We provide deeper detail, and our vision in our [GitHub Pages site]().
+Philanthropography is the first application we&#39;ve built in our roadmap&#46; It&#39; an AI-enabled web and phone assistant&#44; which gathers the needs of communities and beneficiaries seeking help&#46; Philanthropography puts benefactors in proximity of need as its top priority&#44; aiming to ease the churn typically associated with bringing help to places where it's needed most&#46; Philanthropography embodies our project&#39;s vision of putting the tools in the hands of ordinary people to make a responsible&#44; sustainable&#44; and impactful difference&#46; It does this by leveraging the power of AI to help people to develop an intimate understanding and situational&#45;awareness of the local context&#44; to which they can validate their hypotheses about individual requests for assistance&#44; without the concern of worsening the situation&#44; or creating undesired consequences&#46; If you&#39;re interested in the deeply detailed research motivating our project&#44; we&#39;ve included a link to our paper at the end of the page under [Research](#Research).
 
 ## Technical implementation
 ### IBM watsonx™ product(s) used
-- [watsonx Assistant™](https://cloud.ibm.com/catalog/services/watsonx-assistant) - the primary way to interact with the solution is through the web chat interface or the telephone number. The assistant is configured to utilize [flan-t5-xl-3b](https://dataplatform.cloud.ibm.com/wx/samples/models/google/flan-t5-xl?context=wx?context=wx&audience=wdp). Read more in the research paper [Scaling Instruction-Finetuned Language Models](https://arxiv.org/abs/2210.11416)
+- [watsonx Assistant™](https://cloud.ibm.com/catalog/services/watsonx-assistant) - the primary way to interact with the solution is through the web chat interface or the telephone number&#46; The assistant is configured to utilize [flan-t5-xl-3b](https://dataplatform.cloud.ibm.com/wx/samples/models/google/flan-t5-xl?context=wx?context=wx&audience=wdp). Read more in the research paper [Scaling Instruction-Finetuned Language Models](https://arxiv.org/abs/2210.11416)&#46; It&#39;s also responsible for keeping the conversation log per session&#44; for a limited time&#44; and excludes PII&#46; Conversation data analytics are currently collected and viewable in watsonX Assistant&#46;
+
+- [watsonx.governance™](https://www.ibm.com/products/watsonx-governance) &#45; is presently configured for the conversational assistant AI use case&#44; which is in the development phase&#46;
 
 ### Solution architecture
-![Easy to give then receive solution architecture](/assets/images/Etgtr-Solution-Architecture.png)
+![Easy to give then receive architecture overview diagram IT systems view](/assets/images/Etgtr_AOD_IT_systems_usage_scenarios_diagram.png)
+
+|Step Label|Step Description|
+|---|---|
+|1|User interacts with IBM watsonx Assistant&#46;|
+|2|Conversation is recorded in the conversation log provided by IBM watsonx Assistant for a temporary period&#46;|
+|3|Conversation interaction allows users to ask for help&#44; and the assistant responds by providing information&#44; which may include UN SDGs answers for some questions&#44; or Google search results, when the question is beyond the scope of the assistant&#46;|
+|4|IBM watsonx&#46;governance is configured to perform data analytics on conversation data for performance monitoring&#46;|
+|5|Conversation data is recorded, excluding PII&#44; by IBM watsonx, for temporary retention and retrieval from the conversation log, and for generating data analytics&#46;|
+|A1|User registers an account or logs in via the website&#46;|
+|A2|Configured IAM to ensure on authorized users and applications are granted access via the credentials&#44; which were provisioned&#44; and the user groups and access roles granted to them&#46;|
+|A3|Authorised users are provided access to AI&#45;enabled tools&#44; and extensions for analyzing data&#44; investigating hypotheses&#44; building applications&#44; integrating other software&#44; or extending the capabilities of the web application&#46;|
+|B|Triggered agent&#44; which will perform extract&#44; transform, and load operations on datasets, and migrate data to persistent storage for data visualization&#44; analysis&#44; analytics&#44; predictive analytics&#44; data mining&#44; data science&#44; machine learning&#44; and defining data connections or data sources for models and notebooks&#46;|
+|C|Secure database providing ACID compliance&#44; and adherence to data sovereignty and encryption requirements&#46; The database fulfils data persistence&#44; retention&#44; and backup and recovery&#46; The database is primarily accessible via authorised connections for CRUD operations in tools and applications&#46;|
+|D|Telephonic channel configured via third-party Intellipeer service&#44; for interacting with IBM watsonx Assistant&#44; providing extended STT&#44; and TSS capability&#46;|
+|a|User interacts with IBM watsonx Assistant&#46;|
+|b|Conversation is recorded in the conversation log provided by IBM watsonx Assistant for a temporary period&#46;|
+|c|Conversation interaction allows users to ask for help&#44; and the assistant responds by providing information&#44; which may include UN SDGs answers for some questions&#44; or Google search results&#44; when the question is beyond the scope of the assistant&#46;|
+|d|IBM watsonx&#46;governance is configured to perform data analytics on conversation data for performance monitoring&#46;|
+|e|Conversation data is recorded, excluding PII, by IBM watsonx&#44; for temporary retention and retrieval from the conversation log&#44; and for generating data analytics&#46;|
+|f|Users navigate to the web application and may interact with IBM watsonx Assistant&#44; or access further content when they are logged in&#46;|
+|g|Benefactors may make monetary donations via an external third&#45;party gateway&#46;|
+|i|Custom extension for implementing context&#45;aware conversational assistant to answer questions related to localized SDGs&#46;|
+|ii|Configured third&#45;party Google search extension to answer questions outside of the scope of IBM watsonx Assistant&#46;|
+|iii|Custom extension for building applications&#44; integrations&#44; and extending the functionality of the web application&#44; using a chained multi&#45;agent generative AI&#44; which writes an article based on the specified topic&#46;|
+|iv|Implementation of model to identify patterns in data distribution in specified datasets&#44; to help users to analyze datasets&#44; for gathering contextual information when deciding which initiatives meet their requirements for sponsorship and making an impact with their philanthropy&#46; May also be utilised for predictive analytics and machine learning&#46;|
+|v|Implementation of a model to detect fraudulent activity by benefactors&#46; and beneficiaries&#46; May be used for predictive analytics&#44; and machine learning&#46;|
+
+
+
 
 <!--
 
@@ -160,6 +192,9 @@ See our [description document](./docs/DESCRIPTION.md) for log in credentials.
 
 -->
 
+# Research
+To read more about the research behind our project, our paper is viewable [here](https://1drv.ms/b/c/5dbc09dff0a57015/EbK1mor_h7lEsld0bzmV5E8B2u0lV-45KwIbRcQDOt_yKQ). Our project's vision incorporates our findings, and our aspirations for further research, comprising expert systems to help philanthropists to give impactfully, while lowering any uncertainty about residual and undesired affects.
+
 # Maintainers
 @chong-cherilyn
    - product manager
@@ -182,3 +217,4 @@ See our [description document](./docs/DESCRIPTION.md) for log in credentials.
    - AI/ML engineer
    - developer
    - designer
+
