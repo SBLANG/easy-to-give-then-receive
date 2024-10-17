@@ -54,6 +54,19 @@
       },
     });
     
+    g_wa_instance = instance;
+     instance.on({
+      type: "customResponse",
+      handler: (event, instance) => {
+        if (
+          event.data.message.user_defined &&
+          event.data.message.user_defined.user_defined_type === "embed-multimedia"
+        ) {
+          embedChartOrTableHandler(event);
+        }
+      },
+    });
+
     await instance.render();
   }
 
@@ -173,6 +186,38 @@
     }
   }
 
+  /**
+   * This function implements a handler that calls a /getAnswer API to fetch a chart or table in the form of HTML. 
+   * The response is embedded in the assistant window. 
+  */
+ async function embedChartOrTableHandler(e) {
+  const { element, message } = e.data;
+  const query = message.user_defined.user_query;
+
+  const SERVER = ""; // backend server URL
+  fetch(SERVER + "/getAnswer", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ question: query }),
+  }).then(
+    async (res) => {
+      const response = await res.json();
+      if (response.data) {
+        const { data } = response;
+        element.innerHTML = data;
+        messageChatbot("step successful", true);
+        return;
+      }
+      messageChatbot("Some error occured.", true);
+    },
+    (err) => {
+      messageChatbot("Unable to get answer based on your query.", true);
+    }
+  );
+}
+
   /* Embed web chat edit the configuration object to customise the appearance and behaviour before it is rendered. 
   Visit https://web-chat.global.assistant.watson.cloud.ibm.com/docs.html?to=api-configuration#configuration-object
   to review the parameters. */
@@ -180,6 +225,7 @@
     integrationID: "172046f8-8af2-4730-9991-e25ea7bde2d1", // The ID of this integration.
     region: "us-south", // The region your integration is hosted in.
     serviceInstanceID: "a0ac6602-f8b8-4b0e-9343-df33259cc078", // The ID of your service instance.
+    showRestartButton: true,
     debug: true,
     element: customElement,
     closePanelButtonConfig:{
