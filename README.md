@@ -4,36 +4,58 @@
 # easy-to-give-then-receive
 
 - [Project summary](#project-summary)
-- [Technical implementation](#technology-implementation)
+  - [The issue we are hoping to solve](#the-issue-we-are-hoping-to-solve)
+  - [How our technology solution can help](#how-our-technology-solution-can-help)
+  - [Our idea](#our-idea)
+- [Technology implementation](#technology-implementation)
   - [IBM watsonx product(s) used](#ibm-ai-services-used)
   <!-- - [Other IBM technology used](#other-ibm-technology-used) -->
   - [Solution architecture](#solution-architecture)
-<!-- - [Presentation materials](#presentation-materials)
+- [Presentation materials](#presentation-materials)
   - [Solution demo video](#solution-demo-video)
   - [Project development roadmap](#project-development-roadmap)
 - [Additional details](#additional-details)
-  - [How to run the project](#how-to-run-the-project)
-  - [Live demo](#live-demo) -->
+  - [How to run the project or live demo on local](#how-to-run-the-project)
+  <!-- - [Live demo](#live-demo) -->
 - [Research](#research)
 - [Maintainers](#maintainers)
 
 
 
 ## Project summary
-Easy to give then receive is an innovative technology solution built with IBM watsonx.ai&#8482;&#44; to address specific United Nations Sustainable Development Goals &#40;SDGs&#41; targets in South Africa&#46;
+
+### The issue we are hoping to solve
+
+Many people have intentions to do good, but who can they trust to put those intentions to use? Also, people from every walk of life go through tough times and want to be able to ask for help without the red-tape or judgement - ***getting help should be as easy as asking for it***! 
+
+Benefactors need tools to design suitable ESG portfolios, the problem is that ***coming up with sustainable solutions is complex - nobody wants to leave people worse off than they were to begin with***. 
+
+### How our technology solution can help
+
+**Philanthropography** is an AI-enabled web and phone assistant&#44; ***bringing help to places where it's needed most***&#46;
+
+### Our idea
+
+**Easy to give then receive** is an innovative technology solution built with IBM watsonx&#8482;&#44; to address specific United Nations Sustainable Development Goals &#40;SDGs&#41; targets in South Africa&#46;
+
+**Philanthropography** is the first application we&#39;ve built in our roadmap&#46; It&#39;s an AI-enabled web and phone assistant&#44; which gathers the needs of communities and beneficiaries seeking help&#46; 
+
+- It puts benefactors in proximity of need as its top priority&#44; aiming to ease the churn typically associated with bringing help to places where it's needed most&#46; 
+- It embodies our project&#39;s vision of putting the tools in the hands of ordinary people to make a responsible&#44; sustainable&#44; and impactful difference&#46; 
+- It does this by leveraging the power of AI to help people to develop an intimate understanding and situational&#45;awareness of the local context&#44; to which they can validate their hypotheses about individual requests for assistance&#44; without the concern of worsening the situation&#44; or creating undesired consequences&#46; 
 
 The main purpose of the solution is to provide&#58;
 
-- Community with a way to&#58;
+- **Community** with a way to&#58;
   - request assistance on behalf of others&#59;
   - create a call to action to interested parties to fulfil a need when they cannot do it themselves&#59;
 
-- Beneficiaries with&#58;
+- **Beneficiaries** with&#58;
   - an easy way to articulate and express a need&#59;
   - flexibility around what kind of help they require&#44; this could be anything from a single item&#44; volunteers&#44; collections&#44; cash donations&#44; mentorship&#44; tutoring and training&#59;
   - the safety of remaining anonymous if they wish&#59;
 
-- Benefactors with a trusted platform to&#58;
+- **Benefactors** with a trusted platform to&#58;
   - identify needs that match their interests by browsing requests related by SDG&#44; location, category&#59;
   - verify that requests are within a close distance of their location or in a geographic area of their choice&#59;
   - initiatives are within their means to fulfil&#59;
@@ -44,41 +66,43 @@ The main purpose of the solution is to provide&#58;
   - generate ESG reporting based on the initiatives they have contributed to&#59;
   - register a voluntary SDG acceleration action with the United Nations&#59;
 
-**Goal 12: Responsible Consumption and Production**
+These are the SDGs that our solution addresses.
 
-Target 12&#46;6: Encourage companies, especially large and transnational companies&#44; to adopt sustainable practices and to integrate sustainability information into their reporting cycle
+- **Goal 1:** No Poverty
+- **Goal 2:** Zero Hunger 
+- **Goal 8:** Decent Work and Economic Growth
+- **Goal 9:** Industry, Innovation and Infrastructure
+- **Goal 10:** Reduced Inequality
+- **Goal 11:** Sustainable Cities and Communities
+- **Goal 12:** Responsible Consumption and Production
+- **Goal 15:** Life on Land
+- **Goal 16:** Peace, Justice and Strong Institutions
+- **Goal 17:** Partnerships for the Goals
 
-Indicator: 12&#46;6&#46;1&#58; Number of companies publishing sustainability reports
+> [!NOTE]
+> Indicators 11.3.1, 11.3.2, as well as all indicators in Goal 17 has not reported by South Africa up to 2023. 
 
-   |DIMENSION|2017|2018|2019|2020|2021|2022|2023|
-   |---|---|---|---|---|---|---|---|
-   |Accommodation and Food Service Activities|1|1|1|1|1|1|1|
-   |Administrative and Support Service Activities|1|1|1|1|1|1|1|
-   |Construction|3|3|4|4|4|4|3|
-   |Education|0|0|1|1|1|1|1|
-   |Financial and Insurance Activities|13|13|14|14|15|15|4|
-   |Human Health and Social Work Activities|2|2|2|2|2|2|2|
-   |Information and Communication|4|4|5|5|5|5|4|
-   |Manufacturing|22|22|22|22|22|22|6|
-   |Mining and Quarrying|12|12|13|13|13|14|3|
-   |Professional, Scientific and Technical Activities|4|4|4|4|4|5|4|
-   |Real Estate Activities|6|7|7|8|9|11|3|
-   |Transportation and Storage|1|1|1|1|1|1|1|
-   |Wholesale and Retail Trade&#59; Repair of Motor Vehicles and Motorcycles|3|3|15|15|16|16|9|
-   |TOTAL|87|88|97|98|11|15|42|
- 
-Source: [https://unstats.un.org/UNSDWebsite/undatacommons/countries?p=country%2FZAF&v=dc%2Ftopic%2Fsdg_12.6.1](https://unstats.un.org/UNSDWebsite/undatacommons/countries?p=country%2FZAF&v=dc%2Ftopic%2Fsdg_12.6.1)
+Our research shows the need to bring AI to the community to address SDG priorities. A real-life example is:
 
-Philanthropography is the first application we&#39;ve built in our roadmap&#46; It&#39; an AI-enabled web and phone assistant&#44; which gathers the needs of communities and beneficiaries seeking help&#46; Philanthropography puts benefactors in proximity of need as its top priority&#44; aiming to ease the churn typically associated with bringing help to places where it's needed most&#46; Philanthropography embodies our project&#39;s vision of putting the tools in the hands of ordinary people to make a responsible&#44; sustainable&#44; and impactful difference&#46; It does this by leveraging the power of AI to help people to develop an intimate understanding and situational&#45;awareness of the local context&#44; to which they can validate their hypotheses about individual requests for assistance&#44; without the concern of worsening the situation&#44; or creating undesired consequences&#46; If you&#39;re interested in the deeply detailed research motivating our project&#44; we&#39;ve included a link to our paper at the end of the page under [Research](#Research).
+>In line with the United Nations Integrated Geospatial Information Framework (UN&#45;IGIF), South Africa is adopting the framework (Letsosa and Muthumini, 2023) for SDI&#44; which opens opportunities for further intra&#44; and inter governmental relations&#44; and partnerships. Key to its success&#44; is the recognition of a bottom-up approach to ensure that local inputs are duly acknowledged a move away from the present day issues evident in the DALRRD SALGA committee proceedings (Mandela, 2024). The literature highlighted the potential of the bottom-up approach to accomplishing the extended SDI definition, in the case of community-
+based adaptation (CBA), a multiscale governance approach to address flood risk through empowering communities towards urban transformation of informal settlements in Cape Town (Fox, Ziervogel and Scheba, 2023). Informal settlement residents developed a strategy of reblocking dwellings to address poor living conditions, resulting in the City of Cape Town officially adopting it into policy, following advocacy by the Informal Settlement Network (ISN) (Fox, Ziervogel and Scheba, 2023). 
 
-## Technical implementation
+If you&#39;re interested in the deeply detailed research motivating our project&#44; we&#39;ve included a link to our paper at the end of the page under [Research](#Research).
+
+## Technology implementation
 ### IBM watsonx™ product(s) used
 - [watsonx Assistant™](https://cloud.ibm.com/catalog/services/watsonx-assistant) - the primary way to interact with the solution is through the web chat interface or the telephone number&#46; The assistant is configured to utilize [flan-t5-xl-3b](https://dataplatform.cloud.ibm.com/wx/samples/models/google/flan-t5-xl?context=wx?context=wx&audience=wdp). Read more in the research paper [Scaling Instruction-Finetuned Language Models](https://arxiv.org/abs/2210.11416)&#46; It&#39;s also responsible for keeping the conversation log per session&#44; for a limited time&#44; and excludes PII&#46; Conversation data analytics are currently collected and viewable in watsonX Assistant&#46;
 
 - [watsonx.governance™](https://www.ibm.com/products/watsonx-governance) &#45; is presently configured for the conversational assistant AI use case&#44; which is in the development phase&#46;
 
 ### Solution architecture
+
+> [!TIP]
+> Blue markers in the diagram represent current features and red are in our roadmap. 
+
 ![Easy to give then receive architecture overview diagram IT systems view](/assets/images/Etgtr_AOD_IT_systems_usage_scenarios_diagram.png)
+
+#### Flow of our Solution
 
 |Step Label|Step Description|
 |---|---|
@@ -106,7 +130,73 @@ Philanthropography is the first application we&#39;ve built in our roadmap&#46; 
 |iv|Implementation of model to identify patterns in data distribution in specified datasets&#44; to help users to analyze datasets&#44; for gathering contextual information when deciding which initiatives meet their requirements for sponsorship and making an impact with their philanthropy&#46; May also be utilised for predictive analytics and machine learning&#46;|
 |v|Implementation of a model to detect fraudulent activity by benefactors&#46; and beneficiaries&#46; May be used for predictive analytics&#44; and machine learning&#46;|
 
+<details>
 
+<summary>Underlying Architectural Principles</summary>
+
+#### Architectural Principles
+
+|**Principle**|**Rationale**|**Implication**|
+|---|---|---|
+|**Responsibility**|In order that the solution maintains a posture of responsibility, all derivative works, and activities should adhere to established guidelines, or initiate establishment of new ones.|Deviating from rules and guidelines introduces risk, which consumes resources, which should have been utilized for growth and development.|
+|**Accessibility**|Access is chiefly required to advance the vision of impacting human development and the encompassing environment positively.|Notwithstanding the risk of diluting impact, sidelining accessibility may amplify existing marginalization or create others, including complex nuances therein.|
+|**Ephemeral first**|Adherence to ephemeral first is mandatory to maintain the accessibility of the system to an equitable user base; additionally it may improve the resource footprint.|Omitting this objective may render the system unaffordable, or inaccessible, or impractical in terms of resource utilization.|
+
+-  Any matters related to country regulatory compliance, legislation, laws, and policies are to be held in high regard. Responsible technology pertains to all aspects in the development of the software solutions, and engagement between stakeholders, however it excludes end-users.
+-  Products, services, and activities are to be regarded as a primary mode of interaction with end-users, which should strive to be reachable to the widest audience.
+-  Ephemeral comprises any component, which may be eligible for shutting down, without unmanageable impact; however this excludes business operations and user processes, as it's limited to system architecture.
+
+</details>
+
+## Presentation materials
+
+### Solution demo video
+
+[![Watch the video](assets/images/thumb.jpg)](https://vimeo.com/1020368296?share=copy)
+
+### Project development roadmap
+
+The project currently does the following things.
+
+- Users interact with IBM watsonx Assistant and messages are recorded in the conversation log for a temporary period.
+
+- Users ask for help by answering the assistant’s questions. The assistant also answers UN SDGs question and offers Google search results when the question is beyond its scope.
+
+- With IBM watsonx.governance, data analysis is done on conversation data to monitor performance.
+
+- Conversation data, excluding PII is recorded by IBM watsonx for temporary retention and retrieval from the conversation log, and to generate data analytics.
+
+In the future we plan to...
+
+#### Modularization and Mobilization
+
+- We are starting the process of breaking our solution  down into sub-projects. 
+
+- We will be migrating from single to multi-cloud architecture, implementing the beneficiary, citizen, benefactor and operator MVP. 
+
+- We will be launching open innovation, launching geospatial and AI toolkits, introducing a payment gateway and creating models to detect fraud and invalid requests for help. 
+
+This phase will run over the next 12 to 18 months. 
+
+#### Accessibility and Empowerment
+
+- In future, we will be migrating to micro-services, hybrid, multi-cloud architecture. 
+
+- We will be implementing an always-on population survey, implementing an extension marketplace whilst expanding solutions to accommodate accessibility (voice-enabled with TTS and STT, VR, AR), as well as support additional platforms and channels. 
+
+This phase will run over 18 months and we expect some overlap with the modularization and mobilization phase, expecially with the accessibility accommodations. 
+Citizen Sustainability
+This phase is ongoing. 
+
+#### Citizen Sustainability
+
+We will continue our journey toward an event-driven architecture, giving community tools needed to evaluate and make decisions and implementing the latest technologies. 
+
+Just as we take for granted to AI-embedded solutions in our home and businesses, our dream is create AI-embedded ESG. 
+
+This is our proposed schedule on next steps after Call for Code 2024 submission.
+
+![Roadmap](/assets/images/Project%20Development%20Roadmap.png)
 
 
 <!--
@@ -141,59 +231,244 @@ INSTRUCTIONS: List any other IBM technology or IBM AI services used in your solu
 
 - [Language Translator](https://cloud.ibm.com/catalog/services/language-translator) - WHERE AND HOW THIS IS USED IN OUR SOLUTION
 
-### Solution architecture
-
-REPLACE THIS EXAMPLE WITH YOUR OWN, OR REMOVE THIS EXAMPLE
-
-Diagram and step-by-step description of the flow of our solution:
-
-![Video transcription/translaftion app](https://developer.ibm.com/developer/tutorials/cfc-starter-kit-speech-to-text-app-example/images/cfc-covid19-remote-education-diagram-2.png)
-
-1. The user navigates to the site and uploads a video file.
-2. Watson Speech to Text processes the audio and extracts the text.
-3. Watson Translation (optionally) can translate the text to the desired language.
-4. The app stores the translated text as a document within Object Storage.
-
-## Presentation materials
-
-_INSTRUCTIONS: The following deliverables should be officially posted to your My Team > Submissions section of the [Call for Code Global Challenge resources site](https://cfc-prod.skillsnetwork.site/), but you can also include them here for completeness. Replace the examples seen here with your own deliverable links._
-
-### Solution demo video
-
-[![Watch the video](https://raw.githubusercontent.com/Liquid-Prep/Liquid-Prep/main/images/readme/IBM-interview-video-image.png)](https://youtu.be/vOgCOoy_Bx0)
-
-### Project development roadmap
-
-The project currently does the following things.
-
-- Feature 1
-- Feature 2
-- Feature 3
-
-In the future we plan to...
-
-See below for our proposed schedule on next steps after Call for Code 2024 submission.
-
-![Roadmap](./images/roadmap.jpg)
+-->
 
 ## Additional details
 
-_INSTRUCTIONS: The following deliverables are suggested, but **optional**. Additional details like this can help the judges better review your solution. Remove any sections you are not using._
+### How to run the project or live demo on local
 
-### How to run the project
+#### Prerequisites
 
-INSTRUCTIONS: In this section you add the instructions to run your project on your local machine for development and testing purposes. You can also add instructions on how to deploy the project in production.
+First, make sure you have your environment ready. This includes installing the relevant software applications, registering accounts for web-based tools, setting up your software, as well as forking or cloning the code repository. 
 
-### Live demo
+#### Software Requirements
 
-You can find a running system to test at...
+Ideally, the following software packages should be downloaded and installed on your laptop or PC before you to start development. 
 
-See our [description document](./docs/DESCRIPTION.md) for log in credentials.
+1. [Visual Studio Code](https://code.visualstudio.com/Download) (VS Code) code editor for development. 
 
--->
+2. [Git](https://git-scm.com/download) Source Code Management (SCM) tool and Version Control System (VCS) .
+
+3. [Node.js](https://nodejs.org/en/download/prebuilt-installer) asynchronous, event-driven JavaScript runtime environment. 
+
+You can choose an alternative source code editor if you prefer to however, this guideline is written for Visual Studio Code.
+
+#### Accounts
+
+1. Register a [GitHub](https://github.com/join) account if you haven’t done so already, which we use as our code repository and version control system.
+
+#### Software Setup
+
+Follow these guidelines to get your development environment set up to start contributing to the Philanthropography web app.  
+
+##### Create a Node.js Profile
+1. Open Visual Studio Code. 
+
+2. Go to *File > Preferences > Profiles > Create Profile*.
+
+3. Type in a name for your new profile, select Node.js as the Profile Template from the Copy from: drop-down list, choose an icon if desired and click the Create button.
+
+The Node.js profile comes with the following extensions: 
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Integrates ESLint JavaScript into VS Code.
+
+- [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - Create custom development environments inside a Docker container.
+
+- [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) - Create, manage, and debug containerized applications.
+
+- [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv) - Support for dotenv file syntax.
+
+- [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - EditorConfig Support for Visual Studio Code.
+
+- [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) - Code snippets for JavaScript in ES6 syntax.
+
+- [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) - Use Facebook's jest testing framework.
+
+- [Microsoft Edge Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools) - Use the Microsoft Edge Tools from within VS Code.
+
+- [npm Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense) - Autocomplete npm modules in import statements.
+
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - Code formatter using Prettier.
+
+- [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - REST Client for Visual Studio Code.
+
+- [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) - YAML language support with built-in Kubernetes syntax.
+
+Learn more about VS Code profiles at https://code.visualstudio.com/docs/editor/profiles. 
+
+##### Install EJS language support extension from DigitalBrainstem
+
+1. Click on the extensions icon in the *Activity bar* (left menu of VS Code) and type “ejs” into the search input.
+
+2. Click the blue *Install* button to the bottom right of the EJS language support extension. 
+
+Learn more about VS Code extensions at https://code.visualstudio.com/docs/editor/extension-marketplace.
+
+##### Select a default VS Code terminal profile
+
+1. Go to *Terminal > New Terminal* to open a new terminal window.
+
+2. Click on the arrow next to the plus sign to the top right.
+
+3. Click *Select Default Profile*.
+
+4. Choose Git Bash from the *Command Palette* options.
+
+5. Click the bin icon to kill the terminal.
+
+Learn more about VS Code terminal profiles at https://code.visualstudio.com/docs/terminal/profiles.
+
+##### Set up Git
+
+> [!WARNING]
+> Make sure you already have Git installed on your computer as well as an active Github account. 
+
+1. Sign into VS Code using your GitHub account in the bottom right of the Activity bar (left menu of VS Code). 
+
+Learn more about setting up your Git at https://code.visualstudio.com/docs/sourcecontrol/intro-to-git. 
+
+##### Check for existing SSH keys and/ or generate a new SSH key
+
+1. Go to *Terminal > New Terminal* to open a new Git Bash terminal window.
+
+2. Place the text below to see if existing SSH keys exist to get a listing of existing keys. 
+
+```
+ls -al ~/.ssh
+```
+
+If you get this error, you don’t have an existing SSH key pair in the default location.
+
+```
+~/.ssh doesn't exist
+```
+
+If the listing contains any of the following file names, which are supported public keys for GitHub, you already have one. 
+
+- *id_rsa.pub*
+
+- *id_ecdsa.pub*
+
+- *id_ed25519.pub*
+
+> [!NOTE]
+> Either reuse the existing key and skip to the next step or continue on to generate a new key. 
+> Learn more about checking for existing SSH keys at https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys#checking-for-existing-ssh-keys.   
+ 
+3. Paste the text below, replacing the email used in the example with your GitHub email address.
+
+```
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+> [!WARNING]
+> If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
+
+```
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+This creates a new SSH key, using the provided email as a label. The terminal prompt will display as follows: 
+
+```
+> Generating public/private ALGORITHM key pair.
+```
+
+4. When prompted to Enter a file in which to save the key, press Enter to accept the default file location. 
+
+```
+> Enter file in which to save the key (/c/Users/YOU/.ssh/id_ALGORITHM):[Press enter]
+```
+5. If you created SSH keys previously, ssh-keygen may ask you to rewrite another key. Rather create a custom-named SSH key. To do so, type the default file location and replace id_ALGORITHM with your custom key name.
+
+6. At the prompt, type a secure passphrase. 
+
+```
+> Enter passphrase (empty for no passphrase): [Type a passphrase]
+> Enter same passphrase again: [Type passphrase again]
+```
+
+> [!NOTE]
+> Learn more about generating new SSH keys at https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=windows#generating-a-new-ssh-key.  
+
+
+#### Clone the repository
+1. Either run Git: Clone in the *command palette* or select *Clone Repository* from the *Source Control* view.
+
+2. Enter the repository URL and select clone.
+
+3.  Choose a folder on your local machine to clone the files into.
+
+> [!NOTE]
+> Learn more about source control in VS Code at https://code.visualstudio.com/docs/sourcecontrol/overview. 
+
+#### Install dependencies and devdependencies
+
+1. Making sure you’re in the project folder in VS Code paste the following into the Git Bash terminal to install dependencies. 
+
+```
+npm install
+```
+
+2. Paste the following into the terminal, replacing <dev_dependencies> with the module name you’re installing. 
+
+```
+npm install <dev_dependencies> --save-dev 
+```
+
+#### Run the project on local
+
+1. Paste the following into the Git Bash terminal. 
+
+```
+npm start
+```
+
+2. Open local host 3000 to preview the web app. 
+
+### Front-end Development
+
+The web app is designed using **CoreUI Bootstrap**. 
+
+#### Design
+
+1. Avoid making changes to the core variables directly. 
+
+2. Override, add, remove maps or variables and create custom code in the *custom.scss* file under *demoapp > scss*. 
+
+3. A full list of variables can be found in the *variables.scss* file under *demoapp > node_modules > @coreui > coreui > scss*. 
+
+> [!NOTE]
+> Learn more about CoreUI at https://coreui.io/bootstrap/docs/getting-started/introduction/. 
+
+
+#### Functionality
+
+1. You will find existing EJS files to update under *demoapp > views*. 
+
+2. Add new pages under *demoapp > views*. 
+
+3. Add new partials under *demoapp > views > partials*. 
+
+> [!NOTE]
+> Learn more about EJS at https://ejs.co/#docs. 
+
+#### Back-End Development
+
+The web app server side is built in **Javascript** using **Node.js**, **Express** and **Body Parser**. 
+
+1. Open *app.js* under *demoapp > views* to add pages, integrate APIs, databases etc. to the the main application. 
+
+2. If you import any new modules, make sure to add their associated copyright and license information to *THIRDPARTY.txt* in the demoapp project folder. 
+
+> [!NOTE]
+> Learn more about Node.js at https://nodejs.org/docs/latest/api/. Learn more about Express at https://expressjs.com/en/5x/api.html. Learn more about body-parser at https://www.npmjs.com/package/body-parser.
 
 # Research
 To read more about the research behind our project, our paper is viewable [here](https://1drv.ms/b/c/5dbc09dff0a57015/EbK1mor_h7lEsld0bzmV5E8B2u0lV-45KwIbRcQDOt_yKQ). Our project's vision incorporates our findings, and our aspirations for further research, comprising expert systems to help philanthropists to give impactfully, while lowering any uncertainty about residual and undesired affects.
+
+We would like to thank the [Joint Research Centre](https://commission.europa.eu/about-european-commission/departments-and-executive-agencies/joint-research-centre_en) (JRC) and [Director-General for International Partnerships](https://commission.europa.eu/about-european-commission/departments-and-executive-agencies/international-partnerships_en) (DG INTPA) for the use of the [SDG Mapper Tool](https://knowsdgs.jrc.ec.europa.eu/sdgmapper). 
+
+We would also like to acknowledge the efforts of parties who have made our work possible, including those referenced in our research paper.
 
 # Maintainers
 @chong-cherilyn
