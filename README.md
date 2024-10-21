@@ -26,45 +26,45 @@
 
 ### The issue we are hoping to solve
 
-Many people have intentions to do good, but who can they trust to put those intentions to use? Also, people from every walk of life go through tough times and want to be able to ask for help without the red-tape or judgement - ***getting help should be as easy as asking for it***! 
+Many people have intentions to do good, but who can they trust to put those intentions to use? Also, people from every walk of life go through tough times and want to be able to ask for help without the red-tape or judgment - ***getting help should be as easy as asking for it***! 
 
 Benefactors need tools to design suitable ESG portfolios, the problem is that ***coming up with sustainable solutions is complex - nobody wants to leave people worse off than they were to begin with***. 
 
 ### How our technology solution can help
 
-**Philanthropography** is an AI-enabled web and phone assistant&#44; ***bringing help to places where it's needed most***&#46;
+**Philanthropography** is an AI-enabled web and phone assistant, ***bringing help to places where it's needed most***.
 
 ### Our idea
 
-**Easy to give then receive** is an innovative technology solution built with IBM watsonx&#8482;&#44; to address specific United Nations Sustainable Development Goals &#40;SDGs&#41; targets in South Africa&#46;
+**Easy to give then receive** is an innovative technology solution built with IBM watsonx&#8482;, to address specific United Nations Sustainable Development Goals (SDGs) targets in South Africa.
 
-**Philanthropography** is the first application we&#39;ve built in our roadmap&#46; It&#39;s an AI-enabled web and phone assistant&#44; which gathers the needs of communities and beneficiaries seeking help&#46; 
+**Philanthropography** is the first application we've built in our roadmap. It's an AI-enabled web and phone assistant, which gathers the needs of communities and beneficiaries seeking help. 
 
-- It puts benefactors in proximity of need as its top priority&#44; aiming to ease the churn typically associated with bringing help to places where it's needed most&#46; 
-- It embodies our project&#39;s vision of putting the tools in the hands of ordinary people to make a responsible&#44; sustainable&#44; and impactful difference&#46; 
-- It does this by leveraging the power of AI to help people to develop an intimate understanding and situational&#45;awareness of the local context&#44; to which they can validate their hypotheses about individual requests for assistance&#44; without the concern of worsening the situation&#44; or creating undesired consequences&#46; 
+- It puts benefactors in proximity of need as its top priority, aiming to ease the churn typically associated with bringing help to places where it's needed most. 
+- It embodies our project's vision of putting the tools in the hands of ordinary people to make a responsible, sustainable, and impactful difference. 
+- It does this by leveraging the power of AI to help people to develop an intimate understanding and situational-awareness of the local context, to which they can validate their hypotheses about individual requests for assistance, without the concern of worsening the situation, or creating undesired consequences. 
 
-The main purpose of the solution is to provide&#58;
+The main purpose of the solution is to provide:
 
-- **Community** with a way to&#58;
-  - request assistance on behalf of others&#59;
-  - create a call to action to interested parties to fulfil a need when they cannot do it themselves&#59;
+- **Community** with a way to:
+  - request assistance on behalf of others;
+  - create a call to action to interested parties to fulfill a need when they cannot do it themselves;
 
-- **Beneficiaries** with&#58;
-  - an easy way to articulate and express a need&#59;
-  - flexibility around what kind of help they require&#44; this could be anything from a single item&#44; volunteers&#44; collections&#44; cash donations&#44; mentorship&#44; tutoring and training&#59;
-  - the safety of remaining anonymous if they wish&#59;
+- **Beneficiaries** with:
+  - an easy way to articulate and express a need;
+  - flexibility around what kind of help they require, this could be anything from a single item, volunteers, collections, cash donations, mentorship, tutoring and training;
+  - the safety of remaining anonymous if they wish;
 
-- **Benefactors** with a trusted platform to&#58;
-  - identify needs that match their interests by browsing requests related by SDG&#44; location, category&#59;
-  - verify that requests are within a close distance of their location or in a geographic area of their choice&#59;
-  - initiatives are within their means to fulfil&#59;
-  - map shortlisted initiatives back to one or more related SDG&#59;
-  - determine where initiatives overlap across SDGs and build proactive strategies targeted at root causes&#59;
-  - view fact sheets for each initiative to validate their authenticity and cross check against their strategy&#59;
-  - build an environment&#44; social and governance  &#40;ESG&#41; portfolio of related initiatives&#59;
-  - generate ESG reporting based on the initiatives they have contributed to&#59;
-  - register a voluntary SDG acceleration action with the United Nations&#59;
+- **Benefactors** with a trusted platform to:
+  - identify needs that match their interests by browsing requests related by SDG, location, category;
+  - verify that requests are within a close distance of their location or in a geographic area of their choice;
+  - initiatives are within their means to fulfill;
+  - map shortlisted initiatives back to one or more related SDG;
+  - determine where initiatives overlap across SDGs and build proactive strategies targeted at root causes;
+  - view fact sheets for each initiative to validate their authenticity and cross check against their strategy;
+  - build an environment, social and governance  (ESG) portfolio of related initiatives;
+  - generate ESG reporting based on the initiatives they have contributed to;
+  - register a voluntary SDG acceleration action with the United Nations;
 
 These are the SDGs that our solution addresses.
 
@@ -84,16 +84,26 @@ These are the SDGs that our solution addresses.
 
 Our research shows the need to bring AI to the community to address SDG priorities. A real-life example is:
 
->In line with the United Nations Integrated Geospatial Information Framework (UN&#45;IGIF), South Africa is adopting the framework (Letsosa and Muthumini, 2023) for SDI&#44; which opens opportunities for further intra&#44; and inter governmental relations&#44; and partnerships. Key to its success&#44; is the recognition of a bottom-up approach to ensure that local inputs are duly acknowledged a move away from the present day issues evident in the DALRRD SALGA committee proceedings (Mandela, 2024). The literature highlighted the potential of the bottom-up approach to accomplishing the extended SDI definition, in the case of community-
+>In line with the United Nations Integrated Geospatial Information Framework (UN-IGIF), South Africa is adopting the framework (Letsosa and Muthumini, 2023) for SDI, which opens opportunities for further intra, and inter governmental relations, and partnerships. Key to its success, is the recognition of a bottom-up approach to ensure that local inputs are duly acknowledged a move away from the present day issues evident in the DALRRD SALGA committee proceedings (Mandela, 2024). The literature highlighted the potential of the bottom-up approach to accomplishing the extended SDI definition, in the case of community-
 based adaptation (CBA), a multiscale governance approach to address flood risk through empowering communities towards urban transformation of informal settlements in Cape Town (Fox, Ziervogel and Scheba, 2023). Informal settlement residents developed a strategy of reblocking dwellings to address poor living conditions, resulting in the City of Cape Town officially adopting it into policy, following advocacy by the Informal Settlement Network (ISN) (Fox, Ziervogel and Scheba, 2023). 
 
-If you&#39;re interested in the deeply detailed research motivating our project&#44; we&#39;ve included a link to our paper at the end of the page under [Research](#Research).
+Furthermore, our finding highlighted various **weaknesses in addressing needs with current systems and datasets**: 
+
+- data formats were not standardized across systems and were incompatible; 
+- data needed to be sourced from numerous sources including successful and failed registration on account of lack of academic institution license or proprietary software license required, for example commercial licenses needed to obtain authoritative datasets, albeit data from public providers; 
+- metadata was omitted and locating data specifications was problematics; 
+- numerous services were no longer available online on account of changes in government vendors; 
+- online geo-processing failed while local machine geo-
+processing was time-consuming, for example the distance matrix for Western Cape (proximity of people to education and health services) completed execution after 28 hours; 
+- and literature analysis could not be repeated to obtain identical results.
+
+If you're interested in the deeply detailed research motivating our project, we've included a link to our paper at the end of the page under [Research](#Research).
 
 ## Technology implementation
 ### IBM watsonx™ product(s) used
-- [watsonx Assistant™](https://cloud.ibm.com/catalog/services/watsonx-assistant) - the primary way to interact with the solution is through the web chat interface or the telephone number&#46; The assistant is configured to utilize [flan-t5-xl-3b](https://dataplatform.cloud.ibm.com/wx/samples/models/google/flan-t5-xl?context=wx?context=wx&audience=wdp). Read more in the research paper [Scaling Instruction-Finetuned Language Models](https://arxiv.org/abs/2210.11416)&#46; It&#39;s also responsible for keeping the conversation log per session&#44; for a limited time&#44; and excludes PII&#46; Conversation data analytics are currently collected and viewable in watsonX Assistant&#46;
+- [watsonx Assistant™](https://cloud.ibm.com/catalog/services/watsonx-assistant) - the primary way to interact with the solution is through the web chat interface or the telephone number. The assistant is configured to utilize [flan-t5-xl-3b](https://dataplatform.cloud.ibm.com/wx/samples/models/google/flan-t5-xl?context=wx?context=wx&audience=wdp). Read more in the research paper [Scaling Instruction-Finetuned Language Models](https://arxiv.org/abs/2210.11416). It's also responsible for keeping the conversation log per session, for a limited time, and excludes PII. Conversation data analytics are currently collected and viewable in watsonX Assistant.
 
-- [watsonx.governance™](https://www.ibm.com/products/watsonx-governance) &#45; is presently configured for the conversational assistant AI use case&#44; which is in the development phase&#46;
+- [watsonx.governance™](https://www.ibm.com/products/watsonx-governance) - is presently configured for the conversational assistant AI use case, which is in the development phase.
 
 ### Solution architecture
 
@@ -106,29 +116,29 @@ If you&#39;re interested in the deeply detailed research motivating our project&
 
 |Step Label|Step Description|
 |---|---|
-|1|User interacts with IBM watsonx Assistant&#46;|
-|2|Conversation is recorded in the conversation log provided by IBM watsonx Assistant for a temporary period&#46;|
-|3|Conversation interaction allows users to ask for help&#44; and the assistant responds by providing information&#44; which may include UN SDGs answers for some questions&#44; or Google search results, when the question is beyond the scope of the assistant&#46;|
-|4|IBM watsonx&#46;governance is configured to perform data analytics on conversation data for performance monitoring&#46;|
-|5|Conversation data is recorded, excluding PII&#44; by IBM watsonx, for temporary retention and retrieval from the conversation log, and for generating data analytics&#46;|
-|A1|User registers an account or logs in via the website&#46;|
-|A2|Configured IAM to ensure on authorized users and applications are granted access via the credentials&#44; which were provisioned&#44; and the user groups and access roles granted to them&#46;|
-|A3|Authorised users are provided access to AI&#45;enabled tools&#44; and extensions for analyzing data&#44; investigating hypotheses&#44; building applications&#44; integrating other software&#44; or extending the capabilities of the web application&#46;|
-|B|Triggered agent&#44; which will perform extract&#44; transform, and load operations on datasets, and migrate data to persistent storage for data visualization&#44; analysis&#44; analytics&#44; predictive analytics&#44; data mining&#44; data science&#44; machine learning&#44; and defining data connections or data sources for models and notebooks&#46;|
-|C|Secure database providing ACID compliance&#44; and adherence to data sovereignty and encryption requirements&#46; The database fulfils data persistence&#44; retention&#44; and backup and recovery&#46; The database is primarily accessible via authorised connections for CRUD operations in tools and applications&#46;|
-|D|Telephonic channel configured via third-party Intellipeer service&#44; for interacting with IBM watsonx Assistant&#44; providing extended STT&#44; and TSS capability&#46;|
-|a|User interacts with IBM watsonx Assistant&#46;|
-|b|Conversation is recorded in the conversation log provided by IBM watsonx Assistant for a temporary period&#46;|
-|c|Conversation interaction allows users to ask for help&#44; and the assistant responds by providing information&#44; which may include UN SDGs answers for some questions&#44; or Google search results&#44; when the question is beyond the scope of the assistant&#46;|
-|d|IBM watsonx&#46;governance is configured to perform data analytics on conversation data for performance monitoring&#46;|
-|e|Conversation data is recorded, excluding PII, by IBM watsonx&#44; for temporary retention and retrieval from the conversation log&#44; and for generating data analytics&#46;|
-|f|Users navigate to the web application and may interact with IBM watsonx Assistant&#44; or access further content when they are logged in&#46;|
-|g|Benefactors may make monetary donations via an external third&#45;party gateway&#46;|
-|i|Custom extension for implementing context&#45;aware conversational assistant to answer questions related to localized SDGs&#46;|
-|ii|Configured third&#45;party Google search extension to answer questions outside of the scope of IBM watsonx Assistant&#46;|
-|iii|Custom extension for building applications&#44; integrations&#44; and extending the functionality of the web application&#44; using a chained multi&#45;agent generative AI&#44; which writes an article based on the specified topic&#46;|
-|iv|Implementation of model to identify patterns in data distribution in specified datasets&#44; to help users to analyze datasets&#44; for gathering contextual information when deciding which initiatives meet their requirements for sponsorship and making an impact with their philanthropy&#46; May also be utilised for predictive analytics and machine learning&#46;|
-|v|Implementation of a model to detect fraudulent activity by benefactors&#46; and beneficiaries&#46; May be used for predictive analytics&#44; and machine learning&#46;|
+|1|User interacts with IBM watsonx Assistant.|
+|2|Conversation is recorded in the conversation log provided by IBM watsonx Assistant for a temporary period.|
+|3|Conversation interaction allows users to ask for help, and the assistant responds by providing information, which may include UN SDGs answers for some questions, or Google search results, when the question is beyond the scope of the assistant.|
+|4|IBM watsonx.governance is configured to perform data analytics on conversation data for performance monitoring.|
+|5|Conversation data is recorded, excluding PII, by IBM watsonx, for temporary retention and retrieval from the conversation log, and for generating data analytics.|
+|A1|User registers an account or logs in via the website.|
+|A2|Configured IAM to ensure on authorized users and applications are granted access via the credentials, which were provisioned, and the user groups and access roles granted to them.|
+|A3|Authorized users are provided access to AI-enabled tools, and extensions for analyzing data, investigating hypotheses, building applications, integrating other software, or extending the capabilities of the web application.|
+|B|Triggered agent, which will perform extract, transform, and load operations on datasets, and migrate data to persistent storage for data visualization, analysis, analytics, predictive analytics, data mining, data science, machine learning, and defining data connections or data sources for models and notebooks.|
+|C|Secure database providing ACID compliance, and adherence to data sovereignty and encryption requirements. The database fulfills data persistence, retention, and backup and recovery. The database is primarily accessible via authorized connections for CRUD operations in tools and applications.|
+|D|Telephonic channel configured via third-party Intellipeer service, for interacting with IBM watsonx Assistant, providing extended STT, and TSS capability.|
+|a|User interacts with IBM watsonx Assistant.|
+|b|Conversation is recorded in the conversation log provided by IBM watsonx Assistant for a temporary period.|
+|c|Conversation interaction allows users to ask for help, and the assistant responds by providing information, which may include UN SDGs answers for some questions, or Google search results, when the question is beyond the scope of the assistant.|
+|d|IBM watsonx.governance is configured to perform data analytics on conversation data for performance monitoring.|
+|e|Conversation data is recorded, excluding PII, by IBM watsonx, for temporary retention and retrieval from the conversation log, and for generating data analytics.|
+|f|Users navigate to the web application and may interact with IBM watsonx Assistant, or access further content when they are logged in.|
+|g|Benefactors may make monetary donations via an external third-party gateway.|
+|i|Custom extension for implementing context-aware conversational assistant to answer questions related to localized SDGs.|
+|ii|Configured third-party Google search extension to answer questions outside of the scope of IBM watsonx Assistant.|
+|iii|Custom extension for building applications, integrations, and extending the functionality of the web application, using a chained multi-agent generative AI, which writes an article based on the specified topic.|
+|iv|Implementation of model to identify patterns in data distribution in specified datasets, to help users to analyze datasets, for gathering contextual information when deciding which initiatives meet their requirements for sponsorship and making an impact with their philanthropy. May also be utilized for predictive analytics and machine learning.|
+|v|Implementation of a model to detect fraudulent activity by benefactors. and beneficiaries. May be used for predictive analytics, and machine learning.|
 
 <details>
 
@@ -184,7 +194,7 @@ This phase will run over the next 12 to 18 months.
 
 - We will be implementing an always-on population survey, implementing an extension marketplace whilst expanding solutions to accommodate accessibility (voice-enabled with TTS and STT, VR, AR), as well as support additional platforms and channels. 
 
-This phase will run over 18 months and we expect some overlap with the modularization and mobilization phase, expecially with the accessibility accommodations. 
+This phase will run over 18 months and we expect some overlap with the modularization and mobilization phase, especially with the accessibility accommodations. 
 Citizen Sustainability
 This phase is ongoing. 
 
@@ -454,9 +464,9 @@ The web app is designed using **CoreUI Bootstrap**.
 
 #### Back-End Development
 
-The web app server side is built in **Javascript** using **Node.js**, **Express** and **Body Parser**. 
+The web app server side is built in **JavaScript** using **Node.js**, **Express** and **Body Parser**. 
 
-1. Open *app.js* under *demoapp > views* to add pages, integrate APIs, databases etc. to the the main application. 
+1. Open *app.js* under *demoapp > views* to add pages, integrate APIs, databases etc. to the main application. 
 
 2. If you import any new modules, make sure to add their associated copyright and license information to *THIRDPARTY.txt* in the demoapp project folder. 
 
