@@ -11,14 +11,20 @@
   - [IBM watsonx product(s) used](#ibm-ai-services-used)
   <!-- - [Other IBM technology used](#other-ibm-technology-used) -->
   - [Solution architecture](#solution-architecture)
+  - [Flow of our solution](#flow-of-our-solution)
 - [Presentation materials](#presentation-materials)
   - [Solution demo video](#solution-demo-video)
   - [Project development roadmap](#project-development-roadmap)
 - [Additional details](#additional-details)
-  - [How to run the project or live demo on local](#how-to-run-the-project)
+  - [How to run the project or live demo on local](#how-to-run-the-project-or-live-demo-on-local)
+    - [Prerequisites](#prerequisites)
+    - [Front-end development](#front-end-development)
+    - [Back-end development](#back-end-development)
   <!-- - [Live demo](#live-demo) -->
 - [Research](#research)
+- [Acknowledgements](#acknowledgements)
 - [Maintainers](#maintainers)
+- [License](#license)
 
 
 
@@ -36,7 +42,7 @@ Benefactors need tools to design suitable ESG portfolios, the problem is that **
 
 ### Our idea
 
-**Easy to give then receive** is an innovative technology solution built with IBM watsonx&#8482;, to address specific United Nations Sustainable Development Goals (SDGs) targets in South Africa.
+**Easy to give then receive** is an innovative technology solution built with IBM watsonx™, to address specific United Nations Sustainable Development Goals (SDGs) targets in South Africa.
 
 **Philanthropography** is the first application we've built in our roadmap. It's an AI-enabled web and phone assistant, which gathers the needs of communities and beneficiaries seeking help. 
 
@@ -101,7 +107,7 @@ If you're interested in the deeply detailed research motivating our project, we'
 
 ## Technology implementation
 ### IBM watsonx™ product(s) used
-- [watsonx Assistant™](https://cloud.ibm.com/catalog/services/watsonx-assistant) - the primary way to interact with the solution is through the web chat interface or the telephone number. The assistant is configured to utilize [flan-t5-xl-3b](https://dataplatform.cloud.ibm.com/wx/samples/models/google/flan-t5-xl?context=wx?context=wx&audience=wdp). Read more in the research paper [Scaling Instruction-Finetuned Language Models](https://arxiv.org/abs/2210.11416). It's also responsible for keeping the conversation log per session, for a limited time, and excludes PII. Conversation data analytics are currently collected and viewable in watsonX Assistant.
+- [watsonx Assistant™](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-welcome-new-assistant) - the primary way to interact with the solution is through the web chat interface or the telephone number. The assistant guides the user through a series of questions to enable them to request help. The dialogue is designed to be easy for English speakers of any age to follow with both Generative AI information gathering and HAP filtering enabled, as well as autocorrection. It's also responsible for keeping the conversation log per session, for a limited time, and excludes PII. Conversation data analytics are currently collected and viewable in watsonx Assistant. A third-party Google search extension answers questions that aren't within the scope of the assistant to answer by displaying topic-specific internet search results. The telephonic channel is configured via the third-party Intellipeer service, for interacting with watsonx Assistant, providing extended STT, and TSS capability.
 
 - [watsonx.governance™](https://www.ibm.com/products/watsonx-governance) - is presently configured for the conversational assistant AI use case, which is in the development phase.
 
@@ -112,7 +118,7 @@ If you're interested in the deeply detailed research motivating our project, we'
 
 ![Easy to give then receive architecture overview diagram IT systems view](/assets/images/Etgtr_AOD_IT_systems_usage_scenarios_diagram.png)
 
-#### Flow of our Solution
+### Flow of our solution
 
 |Step Label|Step Description|
 |---|---|
@@ -435,11 +441,11 @@ npm start
 
 2. Open local host 3000 to preview the web app. 
 
-### Front-end Development
+#### Front-end Development
 
 The web app is designed using **CoreUI Bootstrap**. 
 
-#### Design
+Design: 
 
 1. Avoid making changes to the core variables directly. 
 
@@ -451,7 +457,7 @@ The web app is designed using **CoreUI Bootstrap**.
 > Learn more about CoreUI at https://coreui.io/bootstrap/docs/getting-started/introduction/. 
 
 
-#### Functionality
+Functionality:
 
 1. You will find existing EJS files to update under *demoapp > views*. 
 
@@ -475,6 +481,8 @@ The web app server side is built in **JavaScript** using **Node.js**, **Express*
 
 # Research
 To read more about the research behind our project, our paper is viewable [here](https://1drv.ms/b/c/5dbc09dff0a57015/EbK1mor_h7lEsld0bzmV5E8B2u0lV-45KwIbRcQDOt_yKQ). Our project's vision incorporates our findings, and our aspirations for further research, comprising expert systems to help philanthropists to give impactfully, while lowering any uncertainty about residual and undesired affects.
+
+# Acknowledgements
 
 We would like to thank the [Joint Research Centre](https://commission.europa.eu/about-european-commission/departments-and-executive-agencies/joint-research-centre_en) (JRC) and [Director-General for International Partnerships](https://commission.europa.eu/about-european-commission/departments-and-executive-agencies/international-partnerships_en) (DG INTPA) for the use of the [SDG Mapper Tool](https://knowsdgs.jrc.ec.europa.eu/sdgmapper). 
 
@@ -503,3 +511,5 @@ We would also like to acknowledge the efforts of parties who have made our work 
    - developer
    - designer
 
+# License
+This project is licensed under the Apache 2 License - see the [LICENSE](LICENSE) file for details.
