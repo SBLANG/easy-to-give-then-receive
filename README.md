@@ -16,11 +16,11 @@
   - [Solution demo video](#solution-demo-video)
   - [Project development roadmap](#project-development-roadmap)
 - [Additional details](#additional-details)
-  - [How to run the project or live demo on local](#how-to-run-the-project-or-live-demo-on-local)
+  - [How to run the project](#how-to-run-the-project)
     - [Prerequisites](#prerequisites)
     - [Front-end development](#front-end-development)
     - [Back-end development](#back-end-development)
-  <!-- - [Live demo](#live-demo) -->
+  - [Live demo](#live-demo)
 - [Research](#research)
 - [Acknowledgements](#acknowledgements)
 - [Maintainers](#maintainers)
@@ -251,7 +251,7 @@ INSTRUCTIONS: List any other IBM technology or IBM AI services used in your solu
 
 ## Additional details
 
-### How to run the project or live demo on local
+### How to run the project
 
 #### Prerequisites
 
@@ -479,6 +479,10 @@ The web app server side is built in **JavaScript** using **Node.js**, **Express*
 > [!NOTE]
 > Learn more about Node.js at https://nodejs.org/docs/latest/api/. Learn more about Express at https://expressjs.com/en/5x/api.html. Learn more about body-parser at https://www.npmjs.com/package/body-parser.
 
+### Live demo
+
+You can find a running system to test at https://sblang.github.io/easy-to-give-then-receive/.
+
 # Research
 To read more about the research behind our project, our paper is viewable [here](https://1drv.ms/b/c/5dbc09dff0a57015/EbK1mor_h7lEsld0bzmV5E8B2u0lV-45KwIbRcQDOt_yKQ). Our project's vision incorporates our findings, and our aspirations for further research, comprising expert systems to help philanthropists to give impactfully, while lowering any uncertainty about residual and undesired affects.
 
@@ -513,3 +517,9 @@ We would also like to acknowledge the efforts of parties who have made our work 
 
 # License
 This project is licensed under the Apache 2 License - see the [LICENSE](LICENSE) file for details.
+
+Copyright 2018 The Fraunces Project Authors (https://github.com/undercasetype/Fraunces)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
