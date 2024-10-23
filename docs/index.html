@@ -26,6 +26,22 @@
       text-decoration: underline;
     }
 
+    @keyframes fade-in {
+      from {color: white;}
+      to {color: #E0BC00;}
+    }
+
+    #call-to-action {
+        animation-name: fade-in;
+        animation-duration: 4s;
+        animation-timing-function: ease;
+        animation-delay: 2s;
+        animation-iteration-count: infinite;
+        animation-duration: 0.5s;
+        animation-direction: alternate;
+        animation-fill-mode: both;
+    }
+
     #WebChatContainer {
       position: absolute;
       right: 0%;
@@ -45,6 +61,7 @@
 <header class="header sticky-top" data-coreui-theme="dark">
   <a class="header-brand" style="color: white;" href="#">Philanthropography</a>
   <div class="header-nav">
+    <span><p id="call-to-action" class="nav-item" style="color: #E0BC00; font-size: 1.3rem; font-weight: bold; margin-bottom: 0;">Click on the chat icon in the bottom right to make a new request.</p></span>
     <a class="nav-item nav-link active" href="#"><span class="visually-hidden">(current)</span></a>
     <a class="nav-item nav-link" href="#"></a>
     <a class="nav-item nav-link" href="#"></a>
