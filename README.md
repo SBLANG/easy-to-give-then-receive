@@ -498,7 +498,7 @@ We would also like to acknowledge the efforts of parties who have made our work 
    - full stack web/cloud developer
    - integration developer
    - AI/ML engineer
-   - data scientist
+   - anthropologist
    - UI/UX designer
    - business analyst
    - design thinking
