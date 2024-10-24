@@ -490,6 +490,9 @@ The web app server side is built in **JavaScript** using **Node.js**, **Express*
 
 You can find a running system to test at https://sblang.github.io/easy-to-give-then-receive/.
 
+> [!NOTE]
+> If you have any trouble accessing the demo, try this [link](https://web-chat.global.assistant.watson.appdomain.cloud/preview.html?backgroundImageURL=https%3A%2F%2Fus-south.assistant.watson.cloud.ibm.com%2Fpublic%2Fimages%2Fupx-a0ac6602-f8b8-4b0e-9343-df33259cc078%3A%3A29bc468a-1b4b-4b97-af19-a7bc721f443e&integrationID=172046f8-8af2-4730-9991-e25ea7bde2d1&region=us-south&serviceInstanceID=a0ac6602-f8b8-4b0e-9343-df33259cc078)  instead.
+
 # Research
 To read more about the research behind our project, our paper is viewable [here](https://1drv.ms/b/c/5dbc09dff0a57015/EbK1mor_h7lEsld0bzmV5E8B2u0lV-45KwIbRcQDOt_yKQ). Our project's vision incorporates our findings, and our aspirations for further research, comprising expert systems to help philanthropists to give impactfully, while lowering any uncertainty about residual and undesired affects.
 
