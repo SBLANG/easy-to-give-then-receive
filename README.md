@@ -6,6 +6,7 @@
 - [Project summary](#project-summary)
   - [The issue we are hoping to solve](#the-issue-we-are-hoping-to-solve)
   - [How our technology solution can help](#how-our-technology-solution-can-help)
+  - [Conceptual solution](#conceptual-solution)
   - [Our idea](#our-idea)
 - [Technology implementation](#technology-implementation)
   - [IBM watsonx product(s) used](#ibm-ai-services-used)
@@ -39,6 +40,12 @@ Benefactors need tools to design suitable ESG portfolios, the problem is that **
 ### How our technology solution can help
 
 **Philanthropography** is an AI-enabled web and phone assistant, ***bringing help to places where it's needed most***.
+
+### Conceptual solution
+
+We've created a blueprint of the ***complete vision*** of our solution and the key ***features***.
+
+![Easy to give then receive architecture overview diagram IT systems view](/assets/images/Etgtr-Conceptual-Solution-V1.0.png)
 
 ### Our idea
 
@@ -107,7 +114,7 @@ If you're interested in the deeply detailed research motivating our project, we'
 
 ## Technology implementation
 ### IBM watsonx™ product(s) used
-- [watsonx Assistant™](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-welcome-new-assistant) - the primary way to interact with the solution is through the web chat interface or the telephone number. The assistant guides the user through a series of questions to enable them to request help. The dialogue is designed to be easy for English speakers of any age to follow with both Generative AI information gathering and HAP filtering enabled, as well as autocorrection. It's also responsible for keeping the conversation log per session, for a limited time, and excludes PII. Conversation data analytics are currently collected and viewable in watsonx Assistant. A third-party Google search extension answers questions that aren't within the scope of the assistant to answer by displaying topic-specific internet search results. The telephonic channel is configured via the third-party Intellipeer service, for interacting with watsonx Assistant, providing extended STT, and TSS capability.
+- [watsonx Assistant™](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-welcome-new-assistant) - the primary way to interact with the solution is through the web chat interface or the telephone number. The assistant guides the user through a series of questions to enable them to request help. The dialogue is designed to be easy for English speakers of any age to follow with both Generative AI information gathering and HAP filtering enabled, as well as autocorrection. It's also responsible for keeping the conversation log per session, for a limited time, and excludes PII. Conversation data analytics are currently collected and viewable in watsonx Assistant. A third-party Google search extension answers questions that aren't within the scope of the assistant to answer by displaying topic-specific internet search results. The telephonic channel is configured via the third-party IntelePeer service, for interacting with watsonx Assistant, providing extended STT, and TSS capability.
 
 - [watsonx.governance™](https://www.ibm.com/products/watsonx-governance) - is presently configured for the conversational assistant AI use case, which is in the development phase.
 
@@ -132,7 +139,7 @@ If you're interested in the deeply detailed research motivating our project, we'
 |A3|Authorized users are provided access to AI-enabled tools, and extensions for analyzing data, investigating hypotheses, building applications, integrating other software, or extending the capabilities of the web application.|
 |B|Triggered agent, which will perform extract, transform, and load operations on datasets, and migrate data to persistent storage for data visualization, analysis, analytics, predictive analytics, data mining, data science, machine learning, and defining data connections or data sources for models and notebooks.|
 |C|Secure database providing ACID compliance, and adherence to data sovereignty and encryption requirements. The database fulfills data persistence, retention, and backup and recovery. The database is primarily accessible via authorized connections for CRUD operations in tools and applications.|
-|D|Telephonic channel configured via third-party Intellipeer service, for interacting with IBM watsonx Assistant, providing extended STT, and TSS capability.|
+|D|Telephonic channel configured via third-party IntelePeer service, for interacting with IBM watsonx Assistant, providing extended STT, and TSS capability.|
 |a|User interacts with IBM watsonx Assistant.|
 |b|Conversation is recorded in the conversation log provided by IBM watsonx Assistant for a temporary period.|
 |c|Conversation interaction allows users to ask for help, and the assistant responds by providing information, which may include UN SDGs answers for some questions, or Google search results, when the question is beyond the scope of the assistant.|
