@@ -45,7 +45,7 @@ Benefactors need tools to design suitable ESG portfolios, the problem is that **
 
 We've created a blueprint of the ***complete vision*** of our solution and the key ***features***.
 
-![Easy to give then receive architecture overview diagram IT systems view](/assets/images/Etgtr-Conceptual-Solution-V1.0.png)
+![Easy to give then receive architecture overview diagram IT systems view](/assets/images/Etgtr-Conceptual-Solution.png)
 
 ### Our idea
 
@@ -123,7 +123,7 @@ If you're interested in the deeply detailed research motivating our project, we'
 > [!TIP]
 > Blue markers in the diagram represent current features and red are in our roadmap. 
 
-![Easy to give then receive architecture overview diagram IT systems view](/assets/images/Etgtr_AOD_IT_systems_usage_scenarios_diagram.png)
+![Easy to give then receive architecture overview diagram IT systems view](/assets/images/Etgtr-AOD-IT-systems-usage-scenarios-diagram.png)
 
 ### Flow of our solution
 
